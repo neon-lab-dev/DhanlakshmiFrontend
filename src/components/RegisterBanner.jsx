@@ -1,10 +1,11 @@
 import React from "react";
+import RegCoverSVG from "../assets/images/grow_your_business_with_us.svg";
 
 export default function RegisterBanner() {
   return (
     <section
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./Images/RegiesterCover.jpeg)",
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${RegCoverSVG})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
-
+import profile1 from '../../assets/images/profile_1.svg';
+import profile2 from '../../assets/images/profile_2.svg';
+import profile3 from '../../assets/images/profile_3.svg';
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [txts, setTxts] = useState([]);
@@ -9,9 +11,9 @@ export default function Hero() {
   const textOutTimer = 3000;
   const imageTimer = 6000;
   const imgSrcs = [
-    "./Images/HeroImage1.png",
-    "./Images/HeroImage2.png",
-    "./Images/HeroImage3.png",
+    profile1,
+    profile2,
+    profile3,
   ];
   const imageIndexRef = useRef(0);
 

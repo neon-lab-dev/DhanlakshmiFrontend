@@ -1,4 +1,5 @@
 import React from "react";
+import AboutUsSvg from "../assets/images/about_us.svg";
 
 export default function AboutUs() {
   const whyChooseUs = [
@@ -12,7 +13,7 @@ export default function AboutUs() {
     <section className="justify-center px-20 max-md:px-0 mt-16 w-full max-md:mt-10 max-md:max-w-full">
       <div className="flex gap-5 max-md:flex-col-reverse max-md:gap-0 max-md:w-full">
         <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full max-md:h-[300px]">
-          <div style={{backgroundImage: 'url(./Images/AboutUsImg.png)'}} className="flex flex-col grow h-[100%] bg-cover bg-center rounded-3xl	max-md:rounded-none justify-center max-md:mt-10 max-md:max-w-full">
+          <div style={{backgroundImage: `url(${AboutUsSvg})`}} className="flex flex-col grow h-[100%] bg-cover bg-center rounded-3xl	max-md:rounded-none justify-center max-md:mt-10 max-md:max-w-full">
           </div>
         </div>
         <div className="flex py-4 flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">

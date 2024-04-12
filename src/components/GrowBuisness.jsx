@@ -1,11 +1,14 @@
 import React from "react";
+import GrowYourBuisenessSVG from "../assets/images/grow_your_business_with_us.svg";
+import ManCountingSVG from "../assets/images/man_counting_money.svg";
+
 
 export default function GrowBuisness() {
   return (
     <section
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./Images/GrowBuisnessCover.jpeg)",
+          `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${GrowYourBuisenessSVG})`,
         backgroundPosition: "bottom",
         backgroundSize: "cover",
       }}
@@ -32,7 +35,7 @@ export default function GrowBuisness() {
         </div>
         <div
           style={{
-            backgroundImage: "url(./Images/GrowBuisnessPerson.png)",
+            backgroundImage: `url(${ManCountingSVG})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
