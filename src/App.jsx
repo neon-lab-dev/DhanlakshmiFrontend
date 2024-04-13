@@ -1,10 +1,6 @@
 import React from 'react';
 import './styles.css';
 import { Layout } from './components';
-import GrowBuiseness from './components/GrowBuisness';
-import Hero from './components/Hero/Hero';
-import RegisterBanner  from './components/RegisterBanner';
-import AboutUs from './components/AboutUs';
 
 const App = () => {
   return (
@@ -16,10 +12,7 @@ const App = () => {
           One stop solution for Fertilisers, Pesticides and Cattlefeed
           supplements. Join us in harvesting prosperity.
         </p>
-      </div>    <GrowBuiseness/>
-    <Hero/>
-    <RegisterBanner/>
-    <AboutUs/>
+      </div>
     </Layout>
   );
 };

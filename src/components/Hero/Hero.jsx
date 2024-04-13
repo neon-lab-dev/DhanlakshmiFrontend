@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
-import profile1 from '../../assets/images/profile_1.svg';
-import profile2 from '../../assets/images/profile_2.svg';
-import profile3 from '../../assets/images/profile_3.svg';
+import profile1 from "../../assets/images/profile_1.svg";
+import profile2 from "../../assets/images/profile_2.svg";
+import profile3 from "../../assets/images/profile_3.svg";
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [txts, setTxts] = useState([]);
@@ -10,11 +10,7 @@ export default function Hero() {
   const textInTimer = 3000;
   const textOutTimer = 3000;
   const imageTimer = 6000;
-  const imgSrcs = [
-    profile1,
-    profile2,
-    profile3,
-  ];
+  const imgSrcs = [profile1, profile2, profile3];
   const imageIndexRef = useRef(0);
 
   useEffect(() => {
@@ -40,7 +36,6 @@ export default function Hero() {
     return () => clearInterval(intervalId);
   }, [index, txts, txtsLen]);
 
-  
   useEffect(() => {
     const animateText = () => {
       const animateTextElements = document.querySelectorAll(".animate-text");
@@ -60,24 +55,12 @@ export default function Hero() {
     };
   }, []);
   useEffect(() => {
-    const img = document.querySelector(".imgMainDiv");
     const animateImg = () => {
-      img.classList.add("animate-out");
-      setTimeout(function () {
-        img.classList.remove("animate-out");
-        img.classList.add("animate-in");
-      }, 500);
-      setTimeout(function () {
-        img.classList.remove("animate-in");
-        if (imageIndexRef.current === 2) {
-          imageIndexRef.current = 0;
-          console.log("animateImg1");
-        } else {
-          imageIndexRef.current += 1;
-          
-      console.log("animateImg");
-        }
-      }, 1100);
+      if (imageIndexRef.current === 2) {
+        imageIndexRef.current = 0;
+      } else {
+        imageIndexRef.current += 1;
+      }
     };
     const intervalId = setInterval(() => {
       animateImg();
@@ -105,7 +88,7 @@ export default function Hero() {
           <div className="flex grow w-[60%] flex-col max-md:ml-0 max-md:w-full">
             <div className="flex flex-col pt-3.5 mt-3.5 max-md:max-w-full">
               <div
-                style={{ fontWeight: "bold", fontSize: "4rem"}}
+                style={{ fontWeight: "bold", fontSize: "4rem" }}
                 className="mt-3.5 w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
               >
                 <div className="animate-text">
@@ -200,14 +183,23 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div
-            className="imgMainDiv max-md:hidden w-[40%] flex flex-col ml-5 max-md:ml-0 rounded-xl max-md:w-full "
-            style={{
-              backgroundImage: `url(${imgSrcs[imageIndexRef.current]})`,
-              backgroundPosition: "top",
-              backgroundSize: "cover",
-            }}
-          ></div>
+          <div className="relative max-md:hidden w-[40%] flex flex-col ml-5 max-md:ml-0 rounded-xl max-md:w-full ">
+            {imgSrcs.map((imgSrc, index) => {
+              console.log(imgSrc, index, imageIndexRef.current);
+              return (
+                <div
+                  key={index}
+                  className="imgMainDiv absolute animate-in max-md:hidden h-[100%] w-[100%] flex flex-col ml-5 max-md:ml-0 rounded-xl max-md:w-full "
+                  style={{
+                    backgroundImage: `url(${imgSrc})`,
+                    backgroundPosition: "top",
+                    backgroundSize: "cover",
+                    opacity: index === imageIndexRef.current ? 1 : 0,
+                  }}
+                ></div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
