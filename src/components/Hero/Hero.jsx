@@ -61,7 +61,6 @@ export default function Hero() {
   }, []);
   useEffect(() => {
     const img = document.querySelector(".imgMainDiv");
-    console.log(img);
     const animateImg = () => {
       img.classList.add("animate-out");
       setTimeout(function () {
@@ -99,15 +98,15 @@ export default function Hero() {
             }
           : null
       }
-      className="flex flex-col px-20 py-9 w-full max-md:px-5 max-md:max-w-full MainContainer"
+      className="flex flex-col px-20 py-9  full-width max-md:px-5 max-md:max-w-full MainContainer"
     >
       <div className="mx-2.5 mt-16 max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-9 max-md:flex-col max-md:gap-0">
-          <div className="flex grow w-[65%] flex-col max-md:ml-0 max-md:w-full">
+          <div className="flex grow w-[60%] flex-col max-md:ml-0 max-md:w-full">
             <div className="flex flex-col pt-3.5 mt-3.5 max-md:max-w-full">
               <div
-                style={{ fontWeight: "bold" }}
-                className="mt-3.5 w-[76%] max-md:w-[100%] text-7xl font-extrabold text-lime-600 capitalize leading-[77px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
+                style={{ fontWeight: "bold", fontSize: "4rem"}}
+                className="mt-3.5 w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
               >
                 <div className="animate-text">
                   <span className="font-bold text-zinc-800 max-md:text-white">
@@ -134,7 +133,7 @@ export default function Hero() {
                   </span>
                 </div>
               </div>
-              <div className="mt-10 w-[76%] max-md:w-[100%] text-base  max-md:text-white  leading-6 text-stone-500 max-md:max-w-full">
+              <div className="mt-10 w-[76%] max-md:w-[100%] text-base	  max-md:text-white  leading-6 text-stone-500 max-md:max-w-full">
                 Welcome to Dhanlakshmi Organics, your trusted partner in
                 agriculture. One stop solution for Fertilisers, Pesticides and
                 Cattlefeed supplements. Join us in harvesting prosperity.
@@ -201,12 +200,10 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          {/* Conditionally rendering the image based on screen size */}
           <div
             className="imgMainDiv max-md:hidden w-[40%] flex flex-col ml-5 max-md:ml-0 rounded-xl max-md:w-full "
             style={{
               backgroundImage: `url(${imgSrcs[imageIndexRef.current]})`,
-
               backgroundPosition: "top",
               backgroundSize: "cover",
             }}

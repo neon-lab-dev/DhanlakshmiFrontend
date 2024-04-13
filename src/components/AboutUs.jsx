@@ -10,13 +10,13 @@ export default function AboutUs() {
     "Proven quality at the right selling point.",
   ];
   return (
-    <section className="justify-center px-20 max-md:px-0 mt-16 w-full max-md:mt-10 max-md:max-w-full">
+    <section className="justify-center full-width px-20 max-md:px-0 mt-16 max-md:mt-10 max-md:max-w-full">
       <div className="flex gap-5 max-md:flex-col-reverse max-md:gap-0 max-md:w-full">
         <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full max-md:h-[300px]">
           <div style={{backgroundImage: `url(${AboutUsSvg})`}} className="flex flex-col grow h-[100%] bg-cover bg-center rounded-3xl	max-md:rounded-none justify-center max-md:mt-10 max-md:max-w-full">
           </div>
         </div>
-        <div className="flex py-4 flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
+        <div className="flex py-8 flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
           <div className="flex flex-col max-md:px-5  justify-center mt-2 max-md:mt-10 max-md:max-w-full">
             <div className="flex gap-3 max-md:flex-wrap">
               <div className="flex justify-center items-center p-1.5 w-9 h-9 rounded-lg bg-amber-500 bg-opacity-30">
@@ -46,7 +46,7 @@ export default function AboutUs() {
                 About us
               </h2>
             </div>
-            <h3 className="mt-3 text-3xl font-bold font-bold capitalize text-zinc-800 max-md:max-w-full">
+            <h3 className="mt-5  text-3xl font-bold font-bold capitalize text-zinc-800 max-md:max-w-full">
               Vision of dhanlaskhmi organics
             </h3>
             <p className="mt-3 text-base leading-6 text-stone-500 max-md:max-w-full">
@@ -57,11 +57,11 @@ export default function AboutUs() {
               thriving crops and foster sustainable growth in the agricultural
               sector.
             </p>
-            <div className="mt-8"></div>
-            <h3 className="mt-10 text-3xl font-bold capitalize text-zinc-800 max-md:max-w-full">
+            <hr className="mt-8 w-full border-2 border-gray-200 border-solid stroke-[2px] stroke-gray-200 max-md:max-w-full" />
+            <h3 className="mt-8 text-3xl font-bold capitalize text-zinc-800 max-md:max-w-full">
               Why Choose us?
             </h3>
-            <ul className="mt-6 text-base leading-8 text-stone-500 max-md:max-w-full">
+            <ul className="mt-6 text-base leading-8 pl-6 text-stone-500 max-md:max-w-full list-disc">
               {whyChooseUs.map((point, index) => (
                 <li key={index}>
                   {point}

@@ -12,7 +12,7 @@ export default function GrowBuisness() {
         backgroundPosition: "bottom",
         backgroundSize: "cover",
       }}
-      className="overflow-hidden my-12 px-20 max-md:px-5"
+      className="overflow-hidden my-12 px-20 max-md:px-5 full-width"
     >
       <div className="flex gap-5 max-md:flex-col max-md:gap-0">
         <div className="flex flex-col w-[66%] max-md:ml-0 max-md:w-full">

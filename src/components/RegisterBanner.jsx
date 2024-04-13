@@ -6,10 +6,10 @@ export default function RegisterBanner() {
     <section
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${RegCoverSVG})`,
-        backgroundPosition: "center",
+        backgroundPosition: "bottom 81% left 30%",
         backgroundSize: "cover",
       }}
-      className="text-white flex overflow-hidden relative flex-col justify-center items-center px-16 py-16 mt-16 w-full font-bold text-white min-h-[363px] max-md:px-5 max-md:mt-10 max-md:max-w-full"
+      className="text-white flex overflow-hidden relative flex-col justify-center items-center px-16 py-16 mt-16 full-width font-bold min-h-[363px] max-md:px-5 max-md:mt-10 max-md:max-w-full"
     >
       <div className="flex relative justify-center items-center px-16 w-full max-w-[1079px] max-md:px-5 max-md:max-w-full">
         <div className="flex flex-col max-w-full w-[819px]">
