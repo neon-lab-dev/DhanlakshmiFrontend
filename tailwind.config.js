@@ -11,6 +11,9 @@ module.exports = {
         heading: '#333333',
         bodyText: '#666666',
         surface: '#FEFFFF',
+        gray: "#D9D9D9",
+        brown: "#7B4B1D",
+        black: "#292929"
       },
       screens: {},
     },

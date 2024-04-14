@@ -1,8 +1,14 @@
 import React from 'react'
+import CustomerReview from './CustomerReview '
 
 const Landing = () => {
   return (
-    <div>Landing</div>
+    <div>
+
+      <CustomerReview />
+
+
+    </div>
   )
 }
 
