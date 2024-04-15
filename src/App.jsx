@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { Layout } from './components';
+import GetInTouch from './components/GetInTouch/GetInTouch';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           One stop solution for Fertilisers, Pesticides and Cattlefeed
           supplements. Join us in harvesting prosperity.
         </p>
+        <GetInTouch/>
       </div>
     </Layout>
   );

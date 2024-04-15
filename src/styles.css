@@ -4,6 +4,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
 @layer base {
   ::-webkit-scrollbar {
     height: 8px;
