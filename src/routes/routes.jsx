@@ -16,7 +16,7 @@ const RoutesContainer = () => {
             path={route.path}
             element={
               <Layout>
-                <Suspense fallback={<p>Loaing...</p>}>
+                <Suspense fallback={<p>Loading...</p>}>
                   <route.component />
                 </Suspense>
               </Layout>
