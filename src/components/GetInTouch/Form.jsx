@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = () => {
+const Form = ({handleUserSignUpModal}) => {
     return (
         <div className='flex flex-col gap-8'>
              <div>
@@ -60,7 +60,7 @@ const Form = () => {
             />
           </div>
 
-          <button className='bg-primary rounded py-4 px-6 text-white font-Inter text-lg w-1/2'>Get in Touch</button>
+          <button onClick={handleUserSignUpModal} className='bg-primary rounded py-4 px-6 text-white font-Inter text-lg w-1/2'>Get in Touch</button>
         </div>
     );
 };

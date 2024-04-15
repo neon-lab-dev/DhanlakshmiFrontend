@@ -2,8 +2,22 @@ import React from "react";
 import thumbsUp from "../../assets/icons/thumbsup.svg";
 import getInTouch from "../../assets/images/get-in-touch.png";
 import Form from "./Form";
+import { useState } from "react";
+import SellerSignUpModal from "../SignUpModal/SellerSignUpModal";
+import UserSignUpModal from "../SignUpModal/UserSignUpModal";
 
 const GetInTouch = () => {
+  const [isSellerModalOpen, setIsSellerModalOpen] = useState(false);
+
+  const handleSellerSignUpModal = () => {
+    setIsSellerModalOpen(!isSellerModalOpen);
+  };
+
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+
+  const handleUserSignUpModal = () => {
+    setIsUserModalOpen(!isUserModalOpen);
+  };
   return (
     <div>
       <div>
@@ -30,18 +44,17 @@ const GetInTouch = () => {
         </div>
 
         <div className="flex items-center justify-between">
-        <Form/>
+        {/* <Form handleSellerSignUpModal={handleSellerSignUpModal}/> */}
+        <Form handleUserSignUpModal={handleUserSignUpModal}/>
           
           <div className="hidden lg:block">
             <img src={getInTouch} alt="" />
           </div>
         </div>
-
-
-
-
-
       </div>
+      {/* <SellerSignUpModal isSellerModalOpen={isSellerModalOpen} setIsSellerModalOpen={setIsSellerModalOpen}/> */}
+
+      <UserSignUpModal isUserModalOpen={isUserModalOpen} setIsUserModalOpen={setIsUserModalOpen}/>
     </div>
   );
 };
