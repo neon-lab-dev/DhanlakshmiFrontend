@@ -31,7 +31,7 @@ const Header = () => {
         background: "linear-gradient(90deg, #FFF 0%, #FFF 49%, #FFF 100%)",
         boxShadow: "0px 0px 26px 0px rgba(0, 0, 0, 0.10)",
       }}
-      className="flex justify-between rounded-[10px] py-4 px-4 sm:px-6 items-center"
+      className="flex justify-between md:rounded-[10px] py-4 px-4 sm:px-6 items-center md:wrapper"
     >
       <div className="flex items-center justify-center gap-4">
         <img
@@ -39,11 +39,11 @@ const Header = () => {
           alt="Dhanlakshmi"
           className="w-[51px] md:w-[78px] h-[41px] md:h-[63px] object-contain object-center"
         />
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col md:gap-1">
           <p className="text-accent font-800 text-lg md:text-xl lg:text-[30px] lg:leading-[24.527px]">
             Dhanlakshmi Organics
           </p>
-          <p className="text-primary text-xs sm:text-sm md:text-[16px] leading-[24.527px] font-500 font-Inter">
+          <p className="text-primary text-xs sm:text-sm md:text-[16px] md:leading-[24.527px] font-500 font-Inter">
             Let’s Build Organic
           </p>
         </div>
