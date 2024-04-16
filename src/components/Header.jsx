@@ -39,10 +39,10 @@ const Header = () => {
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
       mobileMenu.current.classList.remove("translate-x-full");
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
       mobileMenu.current.classList.add("translate-x-full");
     }
   }, [isMenuOpen]);

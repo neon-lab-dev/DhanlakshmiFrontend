@@ -1,18 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap");
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
 @layer base {
+  * {
+    @apply font-Inter;
+  }
   ::-webkit-scrollbar {
-    height: 8px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
-    border-radius: 6px;
+    background-color: #3636362a;
+    border-radius: 4px;
   }
 
   h1,
@@ -78,7 +79,7 @@
     width: 97%;
   }
   .wrapper {
-    @apply m-auto w-[95%] md:w-[90%] lg:w-[88%]
+    @apply m-auto w-[95%] md:w-[90%] lg:w-[88%];
   }
 
   .full-height {
