@@ -19,7 +19,7 @@ const HEADER_LINKS = [
   },
   {
     label: "About Us",
-    link: "/about",
+    link: "/about-us",
   },
 ];
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import tickMark from "../../assets/icons/tick-mark.svg";
 import downArrow from "../../assets/icons/down-arrow.svg";
-import "./UserSignUpModal.css";
 
 const UserSignUpModal = ({ isUserModalOpen, setIsUserModalOpen }) => {
   const [activeTab, setActiveTab] = useState("first");

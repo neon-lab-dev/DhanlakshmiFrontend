@@ -19,7 +19,7 @@ const GetInTouch = () => {
     setIsUserModalOpen(!isUserModalOpen);
   };
   return (
-    <div>
+    <div className="">
       <div>
         {/* Heading */}
         <div className="flex flex-col gap-6">
