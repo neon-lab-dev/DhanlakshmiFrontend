@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import { useLocation } from "react-router-dom";
+import SellerSignUpModal from "./SellerSignUpModal";
 
 /**
  * AppLayout component
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
       <Header />
       <main className="self-center w-full min-h-svh">{children}</main>
       <Footer />
+      <SellerSignUpModal />
     </div>
   );
 };

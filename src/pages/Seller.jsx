@@ -7,8 +7,10 @@ import InfoCard from "../components/InfoCard";
 import bg from "../assets/images/dotdotdot.svg";
 import TestimonialCard from "../components/TestimonialCard";
 import GetInTouch from "../components/GetInTouch";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const Seller = () => {
+  const { setIsSellerSignUpModalOpen } = useGlobalContext();
   return (
     <div className="flex flex-col">
       <section
@@ -32,7 +34,12 @@ const Seller = () => {
               grow their businesses. Join us today to unlock new opportunities
               for success in the agricultural industry.
             </p>
-            <Button className="w-full font-500 text-lg bg-surface text-bgGradient max-w-[400px] md:w-fit">
+            <Button
+              onClick={() => {
+                setIsSellerSignUpModalOpen(true);
+              }}
+              className="w-full font-500 text-lg bg-surface text-bgGradient max-w-[400px] md:w-fit"
+            >
               Become Our Seller
             </Button>
           </div>
@@ -94,8 +101,21 @@ const Seller = () => {
             difference in agricultural excellence.
           </p>
           <div className="flex gap-6 items-center">
-            <Button className="py-2 md:py-3">Become a Seller</Button>
-            <Button variant="secondary" className="py-2 md:py-3">
+            <Button
+              onClick={() => setIsSellerSignUpModalOpen(true)}
+              className="py-2 md:py-3"
+            >
+              Become a Seller
+            </Button>
+            <Button
+              onClick={() => {
+                document
+                  .getElementById("contact-us")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              variant="secondary"
+              className="py-2 md:py-3"
+            >
               Contact Us
             </Button>
           </div>
