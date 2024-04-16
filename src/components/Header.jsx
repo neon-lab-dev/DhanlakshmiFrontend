@@ -32,7 +32,13 @@ const Header = () => {
     },
   ];
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = "auto";
+    document
+      .getElementById("mobile-menu")
+      ?.classList.add("translate-x-full");
+  }, [pathname]);
 
   return (
     <>
@@ -64,7 +70,7 @@ const Header = () => {
             {HEADER_LINKS.map(({ label, link, action }) => (
               <li
                 key={label}
-                className={`text-base xl:text-lg transition-colors ${
+                className={`text-base xl:text-lg transition-colors min-w-fit ${
                   pathname === link
                     ? "text-primary underline font-600 underline-offset-8"
                     : "text-heading hover:text-primary"
