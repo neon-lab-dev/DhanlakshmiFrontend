@@ -64,7 +64,7 @@ const Product = () => {
               </div>
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg font-Inter font-700">{product.name}</h3>
-                <p className="2xl:hidden">
+                <p className="xl:hidden">
                   {product.description.length > 100 ? (
                     <>
                       <span>

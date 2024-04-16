@@ -16,14 +16,15 @@ module.exports = {
         gray: "#D9D9D9",
         brown: "#7B4B1D",
         black: "#292929",
-        bgBox: '#DF9718',
-        bgGray: '#F6F6F6',
-        lightGray : '#C3C3C3'
+        bgBox: "#DF9718",
+        bgGray: "#F6F6F6",
+        lightGray: "#C3C3C3",
       },
       screens: {},
     },
     fontFamily: {
       Inter: ["Inter", "sans-serif"],
+      Poppins: ["Poppins", "sans-serif"],
     },
     fontWeight: {
       300: "300",
