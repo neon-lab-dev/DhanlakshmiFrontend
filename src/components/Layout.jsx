@@ -12,13 +12,13 @@ const Layout = ({ children }) => {
     // <div className="main-wrapper">
     <div
       id="main-body"
-      className={`flex flex-col md:gap-8 w-full h-full ${
+      className={`flex flex-col md:gap-8 w-full min-h-full ${
         pathname === "/seller" ? "gap-0" : "gap-6 md:pt-6"
       }`}
     >
       <Header />
       <main className="self-center w-full min-h-svh">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
