@@ -56,7 +56,10 @@ const UserSignUpModal = () => {
   };
 
   const onSubmit = (data) => {
-    mutate(data);
+    mutate({
+      ...data,
+      domestic_animal: yesChecked ? data.domestic_animal : "no",
+    });
   };
 
   return (
