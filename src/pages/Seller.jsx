@@ -6,6 +6,7 @@ import sellerCardsInfo from "../assets/data/sellerCardsInfo";
 import InfoCard from "../components/InfoCard";
 import bg from "../assets/images/dotdotdot.svg";
 import TestimonialCard from "../components/TestimonialCard";
+import GetInTouch from "../components/GetInTouch";
 
 const Seller = () => {
   return (
@@ -105,6 +106,7 @@ const Seller = () => {
           ))}
         </div>
       </section>
+      <GetInTouch />
     </div>
   );
 };
