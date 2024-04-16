@@ -5,7 +5,9 @@ import Form from "./Form";
 
 const GetInTouch = () => {
   return (
-    <section className="wrapper">
+    <section 
+    id="contact-us"
+    className="wrapper">
       <div className="w-full py-12 flex flex-col gap-12">
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center md:items-start">
