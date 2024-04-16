@@ -11,6 +11,7 @@ module.exports = {
         heading: '#333333',
         bodyText: '#666666',
         surface: '#FEFFFF',
+        accent: '#7B4B1D',
       },
       screens: {},
     },
