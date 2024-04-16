@@ -3,8 +3,10 @@ import { productData } from "../assets/mock/productData";
 import productImage from "../assets/images/product.svg";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "../components";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const Product = () => {
+  const { setIsUserSignUpModalOpen } = useGlobalContext();
   const [searchParam, setSearchParam] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [isReadMore, setIsReadMore] = useState(false);
@@ -101,7 +103,8 @@ const Product = () => {
                     </div>
                   </div>
                   <Button
-                    className="w-full md:w-[200px] md:py-3 min-w-fit"
+                    onClick={() => setIsUserSignUpModalOpen(true)}
+                    className="w-full md:w-[200px] py-2 md:py-3 min-w-fit"
                     variant="secondary"
                   >
                     Inquire Now

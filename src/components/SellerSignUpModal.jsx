@@ -31,10 +31,7 @@ const SellerSignUpModal = () => {
     <>
       {isSellerSignUpModalOpen && (
         <>
-          <div
-            onClick={() => setIsSellerSignUpModalOpen(false)}
-            className="fixed inset-0 bg-black bg-opacity-20 z-50 w-full h-full backdrop-blur-[2px]"
-          />
+          
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="bg-gray-900 bg-opacity-30 fixed flex justify-center items-center z-50 w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
