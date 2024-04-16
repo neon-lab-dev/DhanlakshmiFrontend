@@ -8,9 +8,12 @@ import Footer from "./Footer";
 const Layout = ({ children }) => {
   return (
     // <div className="main-wrapper">
-    <div className="flex flex-col gap-6 md:gap-8 md:pt-6">
+    <div
+      id="main-body"
+      className="flex flex-col gap-6 md:gap-8 md:pt-6 overflow-x-hidden w-full h-full"
+    >
       <Header />
-      <main className="full-height self-center">{children}</main>
+      <main className="self-center">{children}</main>
       <Footer />
     </div>
   );
