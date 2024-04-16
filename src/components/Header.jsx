@@ -39,10 +39,10 @@ const Header = () => {
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
       mobileMenu.current.classList.remove("translate-x-full");
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
       mobileMenu.current.classList.add("translate-x-full");
     }
   }, [isMenuOpen]);
@@ -50,11 +50,11 @@ const Header = () => {
   return (
     <>
       <nav
-        style={{
-          background: "linear-gradient(90deg, #FFF 0%, #FFF 49%, #FFF 100%)",
-          boxShadow: "0px 0px 26px 0px rgba(0, 0, 0, 0.10)",
-        }}
-        className="flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper"
+        className={`flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper ${
+          pathname === "/seller"
+            ? "md:absolute md:text-white md:top-6 md:left-1/2 md:-translate-x-1/2 navShadow md:shadow-none md:bg-none"
+            : "text-heading navShadow"
+        }`}
       >
         <Link to="/" className="flex items-center justify-center gap-4">
           <img
@@ -80,7 +80,7 @@ const Header = () => {
                 className={`text-base xl:text-lg transition-colors min-w-fit ${
                   pathname === link
                     ? "text-primary underline font-600 underline-offset-8"
-                    : "text-heading hover:text-primary"
+                    : "hover:text-primary"
                 }`}
               >
                 {link ? (
