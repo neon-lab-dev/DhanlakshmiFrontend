@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import logo from "../assets/icons/dhanlakshami.svg";
 import menu from "../assets/icons/menu.svg";
@@ -6,6 +6,7 @@ import close from "../assets/icons/close-svgrepo-com.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const mobileMenu = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -34,11 +35,17 @@ const Header = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
-    document.body.style.overflow = "auto";
-    document
-      .getElementById("mobile-menu")
-      ?.classList.add("translate-x-full");
   }, [pathname]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      mobileMenu.current.classList.remove("translate-x-full");
+    } else {
+      document.body.style.overflow = "auto";
+      mobileMenu.current.classList.add("translate-x-full");
+    }
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -89,10 +96,6 @@ const Header = () => {
         <button
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
-            document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
-            document
-              .getElementById("mobile-menu")
-              ?.classList.toggle("translate-x-full");
           }}
           className="h-[16px] w-[16px] self-center md:hidden text-accent"
         >
@@ -101,15 +104,18 @@ const Header = () => {
       </nav>
 
       {isMenuOpen && (
-        <div className="md:hidden w-screen h-screen bg-surface opacity-80 backdrop-blur-xl fixed top-0 left-0 z-30" />
+        <div
+          onClick={() => setIsMenuOpen(false)}
+          className="md:hidden w-screen h-screen bg-surface opacity-80 backdrop-blur-xl fixed top-0 left-0 z-30"
+        />
       )}
       <aside
-        id="mobile-menu"
+        ref={mobileMenu}
         style={{
           background: "linear-gradient(90deg, #FFF 0%, #FFF 49%, #FFF 100%)",
           boxShadow: "0px 0px 26px 0px rgba(0, 0, 0, 0.10)",
         }}
-        className="md:hidden h-screen w-[200px]  z-40 absolute top-0 right-0 pt-[120px] px-6 pb-4 translate-x-full transition-transform"
+        className="md:hidden h-screen w-[200px] z-40 fixed top-0 right-0 pt-[120px] px-6 pb-4 translate-x-full transition-transform"
       >
         <ul className="flex gap-10 flex-col justify-center">
           {HEADER_LINKS.map(({ label, link, action }) => (
