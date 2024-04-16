@@ -1,5 +1,15 @@
 import { twMerge } from "tailwind-merge";
 
+/**
+ * Button component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} [props.variant="primary"] - The button variant. Can be "primary" or "secondary".
+ * @param {ReactNode} props.children - The content of the button.
+ * @param {string} props.className - Additional CSS class names for the button.
+ * @returns {JSX.Element} The rendered Button component.
+ */
 const Button = ({ variant = "primary", children, className, ...props }) => {
   const classes = {
     default:
