@@ -2,29 +2,33 @@ import React from "react";
 
 import logo from "../assets/icons/dhanlakshami.svg";
 import menu from "../assets/icons/menu.svg";
-import { Link, useLocation } from "react-router-dom";
-
-const HEADER_LINKS = [
-  {
-    label: "Home",
-    link: "/",
-  },
-  {
-    label: "Products",
-    link: "/products",
-  },
-  {
-    label: "Become A Seller",
-    link: "/seller",
-  },
-  {
-    label: "About Us",
-    link: "/about",
-  },
-];
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const HEADER_LINKS = [
+    {
+      label: "Home",
+      link: "/",
+    },
+    {
+      label: "Products",
+      link: "/products",
+    },
+    {
+      label: "Become A Seller",
+      link: "/seller",
+    },
+    {
+      label: "About Us",
+      action: () => {
+        navigate("/");
+        const aboutUs = document.getElementById("about-us");
+        aboutUs?.scrollIntoView({ behavior: "smooth" });
+      },
+    },
+  ];
   return (
     <nav
       style={{
@@ -33,7 +37,7 @@ const Header = () => {
       }}
       className="flex justify-between md:rounded-[10px] py-4 px-4 sm:px-6 items-center md:wrapper"
     >
-      <div className="flex items-center justify-center gap-4">
+      <Link to="/" className="flex items-center justify-center gap-4">
         <img
           src={logo}
           alt="Dhanlakshmi"
@@ -44,14 +48,14 @@ const Header = () => {
             Dhanlakshmi Organics
           </p>
           <p className="text-primary text-xs sm:text-sm md:text-[16px] md:leading-[24.527px] font-500 font-Inter">
-            Let’s Build Organic
+            Let&apos;s Build Organic
           </p>
         </div>
-      </div>
+      </Link>
 
       <div className="hidden md:block font-Inter">
         <ul className="flex gap-5 items-center justify-center">
-          {HEADER_LINKS.map(({ label, link }) => (
+          {HEADER_LINKS.map(({ label, link, action }) => (
             <li
               key={label}
               className={`text-base xl:text-lg transition-colors ${
@@ -60,7 +64,11 @@ const Header = () => {
                   : "text-heading hover:text-primary"
               }`}
             >
-              <Link to={link}>{label}</Link>
+              {link ? (
+                <Link to={link}>{label}</Link>
+              ) : (
+                <button onClick={action}>{label}</button>
+              )}
             </li>
           ))}
         </ul>
