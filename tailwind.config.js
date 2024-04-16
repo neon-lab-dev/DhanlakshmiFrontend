@@ -15,7 +15,10 @@ module.exports = {
         muted: "#F4F4F4",
         gray: "#D9D9D9",
         brown: "#7B4B1D",
-        black: "#292929"
+        black: "#292929",
+        bgBox: '#DF9718',
+        bgGray: '#F6F6F6',
+        lightGray : '#C3C3C3'
       },
       screens: {},
     },
