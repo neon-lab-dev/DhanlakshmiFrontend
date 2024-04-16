@@ -18,8 +18,8 @@ const Seller = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="wrapper">
-          <div className="flex flex-col gap-4 mt-28 md:mt-40 mb-7 md:mb-14 md:max-w-[750px]">
+        <div className="wrapper  md:pt-32">
+          <div className="flex flex-col gap-4 md:gap-6 mt-28 md:mt-32 mb-7 md:mb-14 md:max-w-[750px]">
             <h1 className="text-white text-5xl font-600 leading-[64px]">
               What is Dhanlakshmi Seller Program?
             </h1>
@@ -31,7 +31,7 @@ const Seller = () => {
               grow their businesses. Join us today to unlock new opportunities
               for success in the agricultural industry.
             </p>
-            <Button className="w-full font-500 text-lg bg-surface text-bgGradient max-w-[400px]">
+            <Button className="w-full font-500 text-lg bg-surface text-bgGradient max-w-[400px] md:w-fit">
               Become Our Seller
             </Button>
           </div>

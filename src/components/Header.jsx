@@ -50,11 +50,20 @@ const Header = () => {
   return (
     <>
       <nav
-        style={{
-          background: "linear-gradient(90deg, #FFF 0%, #FFF 49%, #FFF 100%)",
-          boxShadow: "0px 0px 26px 0px rgba(0, 0, 0, 0.10)",
-        }}
-        className="flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper"
+        style={
+          pathname !== "/seller"
+            ? {
+                background:
+                  "linear-gradient(90deg, #FFF 0%, #FFF 49%, #FFF 100%)",
+                boxShadow: "0px 0px 26px 0px rgba(0, 0, 0, 0.10)",
+              }
+            : {}
+        }
+        className={`flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper ${
+          pathname === "/seller"
+            ? "absolute text-white top-6 left-1/2 -translate-x-1/2"
+            : "text-heading"
+        }`}
       >
         <Link to="/" className="flex items-center justify-center gap-4">
           <img
@@ -80,7 +89,7 @@ const Header = () => {
                 className={`text-base xl:text-lg transition-colors min-w-fit ${
                   pathname === link
                     ? "text-primary underline font-600 underline-offset-8"
-                    : "text-heading hover:text-primary"
+                    : "hover:text-primary"
                 }`}
               >
                 {link ? (
