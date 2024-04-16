@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import tickMark from "../assets/icons/tick-mark.svg";
+import React, { useState } from "react";
 import downArrow from "../assets/icons/down-arrow.svg";
 import { useGlobalContext } from "../context/GlobalContext";
 import Button from "./Button";
@@ -11,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { resisterUser } from "../api/user";
 import Swal from "sweetalert2";
 import Spinner from "./Spinner";
+import SuccessModal from "./SuccessModal";
 
 const UserSignUpModal = () => {
   const { isUserSignUpModalOpen, setIsUserSignUpModalOpen } =
@@ -385,36 +385,13 @@ const UserSignUpModal = () => {
               )}
 
               {activeTab === "successful" && (
-                <div id="closeModal" className=" flex flex-col gap-6">
-                  <h1 className="font-Inter text-2xl font-600 text-heading">
-                    Thanks for submission, we’ll get in touch soon.
-                  </h1>
-
-                  <div className="flex justify-center">
-                    <img className="w-24" src={tickMark} alt="" />
-                  </div>
-
-                  <div className="flex flex-col gap-6">
-                    <h2 className="font-Inter text-xl font-600 text-heading text-center">
-                      Seller Registered Successfully! 🎉🎉
-                    </h2>
-
-                    <p className="font-Inter text-base font-400 text-heading text-justify">
-                      You have successfully registered in out Pre Registration
-                      Program and have unlocked the perks. We’ll get in touch
-                      with you soon,
-                    </p>
-
-                    <Button
-                      onClick={() => {
-                        setIsUserSignUpModalOpen(false);
-                        setActiveTab(1);
-                      }}
-                    >
-                      Close
-                    </Button>
-                  </div>
-                </div>
+                <SuccessModal
+                  type="User"
+                  onCloseModal={() => {
+                    setIsUserSignUpModalOpen(false);
+                    setActiveTab(1);
+                  }}
+                />
               )}
             </div>
           </div>
