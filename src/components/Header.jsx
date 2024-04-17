@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const Header = () => {
   const mobileMenu = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const HEADER_LINKS = [
@@ -38,6 +39,19 @@ const Header = () => {
   }, [pathname]);
 
   useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 140) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    });
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  }, []);
+
+  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflowY = "hidden";
       mobileMenu.current.classList.remove("translate-x-full");
@@ -50,10 +64,10 @@ const Header = () => {
   return (
     <>
       <nav
-        className={`flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper ${
-          pathname === "/seller"
+        className={`flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper transition-transform ${
+          pathname === "/seller" && !isScrolled
             ? "md:absolute md:text-white md:top-6 md:left-1/2 md:-translate-x-1/2 navShadow md:shadow-none md:bg-none"
-            : "text-heading navShadow"
+            : "text-heading navShadow sticky top-0 md:top-4"
         }`}
       >
         <Link to="/" className="flex items-center justify-center gap-4">
