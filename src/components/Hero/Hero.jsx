@@ -75,7 +75,7 @@ export default function Hero() {
         window.innerWidth < 768
           ? {
               backgroundImage:
-                "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(./Images/HeroImage1.png)",
+                `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(${imgSrcs[imageIndexRef.current]})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }
@@ -88,30 +88,29 @@ export default function Hero() {
           <div className="flex grow w-[60%] flex-col max-md:ml-0 max-md:w-full">
             <div className="flex flex-col pt-3.5 mt-3.5 max-md:max-w-full">
               <div
-                style={{ fontWeight: "bold", fontSize: "4rem" }}
-                className="mt-3.5 w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
+                className="mt-3.5 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
               >
                 <div className="animate-text">
-                  <span className="font-bold text-zinc-800 max-md:text-white">
+                  <span className="font-bold text-heading max-md:text-white">
                     Nothing Like{" "}
                   </span>
                   <br />
                   <span className="font-bold">Organic </span>
                 </div>
                 <div className="animate-text">
-                  <span className="font-bold text-zinc-800 max-md:text-white">
+                  <span className="font-bold text-heading max-md:text-white">
                     Let's Build{" "}
                   </span>
                   <br />
                   <span className="font-bold">Organic </span>
                 </div>
                 <div className="animate-text text-in">
-                  <span className="font-bold text-zinc-800 max-md:text-white">
+                  <span className="font-bold text-heading max-md:text-white">
                     A Step into{" "}
                   </span>
                   <br />
                   <span className="font-bold">Organic </span>
-                  <span className="font-bold text-zinc-800 max-md:text-white">
+                  <span className="font-bold text-heading max-md:text-white">
                     World
                   </span>
                 </div>
@@ -132,14 +131,14 @@ export default function Hero() {
               <div className="max-md:hidden mt-16 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                   <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-gray-100 border-solid shadow-2xl max-md:mt-6">
+                    <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-heroBorders border-solid shadow-2xl max-md:mt-6">
                       <div
                         style={{ fontWeight: "bold" }}
                         className="text-2xl text-lime-600 font-bold tracking-tight bg-clip-text"
                       >
                         3,400+
                       </div>
-                      <div className="mt-3 text-base font-medium text-zinc-800">
+                      <div className="mt-3 text-base font-medium text-heading">
                         Costumers
                       </div>
                       <div className="mt-1.5 text-xs text-neutral-400">
@@ -148,14 +147,14 @@ export default function Hero() {
                     </div>
                   </div>
                   <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-gray-100 border-solid shadow-2xl max-md:mt-6">
+                    <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-heroBorders border-solid shadow-2xl max-md:mt-6">
                       <div
                         style={{ fontWeight: "bold" }}
                         className="text-2xl text-lime-600 font-bold tracking-tight bg-clip-text"
                       >
                         300+
                       </div>
-                      <div className="mt-3 text-base font-medium text-zinc-800">
+                      <div className="mt-3 text-base font-medium text-heading">
                         Sellers
                       </div>
                       <div className="mt-1.5 text-xs text-neutral-400">
@@ -164,14 +163,14 @@ export default function Hero() {
                     </div>
                   </div>
                   <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-gray-100 border-solid shadow-2xl max-md:mt-6">
+                    <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-heroBorders border-solid shadow-2xl max-md:mt-6">
                       <div
                         style={{ fontWeight: "bold" }}
                         className="text-2xl text-lime-600 font-bold tracking-tight bg-clip-text"
                       >
                         100+
                       </div>
-                      <div className="mt-3 text-base font-medium text-zinc-800">
+                      <div className="mt-3 text-base font-medium text-heading">
                         Products
                       </div>
                       <div className="mt-1.5 text-xs text-neutral-400">
@@ -185,7 +184,6 @@ export default function Hero() {
           </div>
           <div className="relative max-md:hidden w-[40%] flex flex-col ml-5 max-md:ml-0 rounded-xl max-md:w-full ">
             {imgSrcs.map((imgSrc, index) => {
-              console.log(imgSrc, index, imageIndexRef.current);
               return (
                 <div
                   key={index}

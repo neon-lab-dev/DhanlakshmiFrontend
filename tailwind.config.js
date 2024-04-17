@@ -19,6 +19,7 @@ module.exports = {
         bgBox: "#DF9718",
         bgGray: "#F6F6F6",
         lightGray: "#C3C3C3",
+        heroBorders: "#EFF0F6",
       },
       screens: {},
     },

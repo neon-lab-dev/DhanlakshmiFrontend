@@ -46,10 +46,10 @@ export default function AboutUs() {
                 About us
               </h2>
             </div>
-            <h3 className="mt-5  text-3xl font-bold font-bold capitalize text-zinc-800 max-md:max-w-full">
+            <h3 className="mt-5  text-[2rem] font-bold font-bold capitalize text-heading max-md:max-w-full">
               Vision of dhanlaskhmi organics
             </h3>
-            <p className="mt-3 text-base leading-6 text-stone-500 max-md:max-w-full">
+            <p className="mt-3 text-base leading-6 text-bodyText max-md:max-w-full">
               Dhanlakshmi Organics is a leading provider of agricultural
               solutions, offering high-quality fertilizers, pesticides, and
               sustainable farming practices. With a strong commitment to quality
@@ -57,11 +57,11 @@ export default function AboutUs() {
               thriving crops and foster sustainable growth in the agricultural
               sector.
             </p>
-            <hr className="mt-8 w-full border-2 border-gray-200 border-solid stroke-[2px] stroke-gray-200 max-md:max-w-full" />
-            <h3 className="mt-8 text-3xl font-bold capitalize text-zinc-800 max-md:max-w-full">
+            <hr className="mt-8 w-full border-[2px] border-[#EDEDED] border-solid stroke-[2px] stroke-gray-200 max-md:max-w-full" />
+            <h3 className="mt-8 text-[2rem] font-bold capitalize text-heading max-md:max-w-full">
               Why Choose us?
             </h3>
-            <ul className="mt-6 text-base leading-8 pl-6 text-stone-500 max-md:max-w-full list-disc">
+            <ul className="mt-6 text-base leading-8 pl-6 text-bodyText max-md:max-w-full list-disc">
               {whyChooseUs.map((point, index) => (
                 <li key={index}>
                   {point}
