@@ -62,8 +62,10 @@ const Product = () => {
           </Button>
         ))}
       </div>
-      <div className="flex flex-col gap-3 mt-3">
-        <span className="hidden md:block font-600 text-3xl">{activeTab}</span>
+      <div className="flex flex-col gap-6 mt-3">
+        <span className="hidden md:block font-600 text-[28px]">
+          {activeTab}
+        </span>
         <div className="flex flex-col gap-4">
           {/* // product card */}
           {isLoading ? (
@@ -77,6 +79,7 @@ const Product = () => {
               {!isError ? (
                 filteredProducts.length > 0 ? (
                   filteredProducts.map((product, i) => (
+                    // product card
                     <div
                       key={i}
                       className="rounded-xl md:flex-row bg-white p-3 md:px-6 md:py-4 flex flex-col gap-5 2xl:gap-10 md:min-h-[200px]"
@@ -84,18 +87,18 @@ const Product = () => {
                         boxShadow: "0px 0px 3.091px 0px rgba(0, 0, 0, 0.25)",
                       }}
                     >
-                      <div className="h-[253px] md:m-auto md:max-h-[188px] md:min-w-[241px] md:w-[241px] w-full relative">
+                      <div className="h-[253px] md:m-auto md:max-h-[188px] md:min-w-[241px] md:w-[241px] md:max-w-[250px] relative">
                         <img
                           src={product.avatar.url}
                           alt={product.title}
                           className="w-full h-full object-contain object-center absolute"
                         />
                       </div>
-                      <div className="flex flex-col gap-2">
-                        <h3 className="text-lg font-Inter font-700">
+                      <div className="flex flex-col gap-2 md:flex-grow">
+                        <h3 className="text-[20px] font-Inter font-700">
                           {product.name}
                         </h3>
-                        <p className="xl:hidden">
+                        <p className="xl:hidden text-bodyText">
                           {product.description.length > 100 ? (
                             <>
                               <span>
@@ -114,8 +117,10 @@ const Product = () => {
                             product.description
                           )}
                         </p>
-                        <p className="hidden xl:block">{product.description}</p>
-                        <div className="flex gap-6 flex-col md:flex-row-reverse md:mr-auto md:items-center">
+                        <p className="hidden xl:block text-bodyText">
+                          {product.description}
+                        </p>
+                        <div className="flex gap-6 flex-col md:flex-row-reverse md:mr-auto md:items-end md:mt-auto">
                           <div className="flex flex-col gap-1">
                             <h4 className="text-base text-primary font-500">
                               Available in packs of
