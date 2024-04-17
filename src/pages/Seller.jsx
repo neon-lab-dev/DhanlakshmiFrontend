@@ -15,14 +15,12 @@ const Seller = () => {
   return (
     <div className="flex flex-col">
       <section
-        className="bg-cover bg-center h-full w-full"
+        className="!bg-cover xs:!bg-center !bg-[-560px] h-full w-full"
         style={{
           background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), linear-gradient(0deg, rgba(0, 71, 16, 0.30) 0%, rgba(0, 71, 16, 0.30) 100%), url(${sellerHero})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
         }}
       >
-        <div className="wrapper pt-[179px] pb-8 md:py-[70px] md:mt-[140px]">
+        <div className="wrapper pt-[100px] sm:pt-[179px] pb-8 md:py-[70px] md:mt-[140px]">
           <div className="flex flex-col gap-4 md:gap-6 md:max-w-[750px]">
             <h1 className="text-white text-[48px] md:text-[64px] font-600 leading-[64px]">
               What is Dhanlakshmi Seller Program?
