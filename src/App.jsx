@@ -1,14 +1,20 @@
-import React from 'react';
-import './styles.css'
+import React from "react";
+import "./styles.css";
+import RoutesContainer from "./routes/routes";
+import { GlobalProvider } from "./context/GlobalContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <h1 className="text-primary">
-        Welcome to Dhanlakshmi
-      </h1>
-      <p className='text-heading w-[55%] text-center mt-4'>Welcome to Dhanlakshmi Organics, your trusted partner in agriculture. One stop solution for Fertilisers, Pesticides and Cattlefeed supplements. Join us in harvesting prosperity.</p>
-    </div>
+    <GlobalProvider>
+      <QueryClientProvider client={queryClient}>
+        <RoutesContainer />
+        {process.env.NODE_ENV === "development" && <ReactQueryDevtools />}
+      </QueryClientProvider>
+    </GlobalProvider>
   );
 };
 
