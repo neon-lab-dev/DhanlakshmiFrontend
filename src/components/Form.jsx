@@ -41,7 +41,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-7 w-full"
+      className="flex flex-col gap-7 w-full md:max-w-[50%]"
     >
       <div className="flex flex-col gap-2">
         <p className="text-heading text-base font-600">Name</p>
