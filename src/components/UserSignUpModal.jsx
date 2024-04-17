@@ -73,7 +73,7 @@ const UserSignUpModal = () => {
             className="fixed inset-0 bg-black bg-opacity-20 z-50 w-full h-full backdrop-blur-[2px]"
           />
           <div className="bg-gray-900 bg-opacity-30 fixed flex justify-center items-center z-50 w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="bg-white px-8 py-9 w-[450px]">
+            <div className="bg-white px-8 py-9 w-[90vw] max-w-[450px] sm:w-[450px]">
               {activeTab !== "successful" && (
                 <div className=" flex flex-col gap-8">
                   <div className="flex gap-3 items-center">
