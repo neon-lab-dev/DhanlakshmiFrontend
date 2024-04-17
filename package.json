@@ -17,6 +17,9 @@
     "tailwindcss": "^3.4.3",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.29.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
