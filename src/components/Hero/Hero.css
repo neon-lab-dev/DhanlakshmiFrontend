@@ -55,10 +55,8 @@
 }
 
 .animate-in {
-  display: block;
   transition:all 0.5s ease;
 }
 .animate-out{
-  display: block;
   animation: fade-out 0.5s ease;
 }
