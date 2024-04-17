@@ -26,6 +26,7 @@ const UserSignUpModal = () => {
     formState: { errors },
     watch,
     setError,
+    reset,
   } = useForm({
     mode: "all",
   });
@@ -41,6 +42,7 @@ const UserSignUpModal = () => {
     },
     onSuccess: () => {
       setActiveTab("successful");
+      reset();
     },
   });
 
@@ -89,26 +91,24 @@ const UserSignUpModal = () => {
                   </div>
 
                   <div className="flex items-center justify-between gap-4">
+                    <div className="h-1 w-full bg-primary" />
                     <div
                       className={`h-1 w-full ${
-                        activeTab === 1 ? "bg-primary" : "bg-lightGray"
+                        activeTab !== 1 ? "bg-primary" : "bg-lightGray"
                       }`}
-                    ></div>
+                    />
                     <div
                       className={`h-1 w-full ${
-                        activeTab === 2 ? "bg-primary" : "bg-lightGray"
+                        activeTab !== 1 && activeTab !== 2
+                          ? "bg-primary"
+                          : "bg-lightGray"
                       }`}
-                    ></div>
-                    <div
-                      className={`h-1 w-full ${
-                        activeTab === 3 ? "bg-primary" : "bg-lightGray"
-                      }`}
-                    ></div>
+                    />
                     <div
                       className={`h-1 w-full ${
                         activeTab === 4 ? "bg-primary" : "bg-lightGray"
                       }`}
-                    ></div>
+                    />
                   </div>
 
                   <p className="font-Inter text-sm font-400 text-heading">

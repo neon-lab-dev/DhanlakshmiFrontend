@@ -23,6 +23,7 @@ const SellerSignUpModal = () => {
     handleSubmit,
     setError,
     watch,
+    reset,
     formState: { errors },
   } = useForm({
     mode: "all",
@@ -68,6 +69,8 @@ const SellerSignUpModal = () => {
     },
     onSuccess: () => {
       setActiveTab("success");
+      reset();
+      resetOtp();
     },
   });
 
@@ -135,21 +138,17 @@ const SellerSignUpModal = () => {
                   </div>
 
                   <div className="flex items-center justify-between gap-4">
+                    <div className="h-1 w-full bg-primary" />
                     <div
                       className={`h-1 w-full ${
-                        activeTab === 1 ? "bg-primary" : "bg-lightGray"
+                        activeTab !== 1 ? "bg-primary" : "bg-lightGray"
                       }`}
-                    ></div>
-                    <div
-                      className={`h-1 w-full ${
-                        activeTab === 2 ? "bg-primary" : "bg-lightGray"
-                      }`}
-                    ></div>
+                    />
                     <div
                       className={`h-1 w-full ${
                         activeTab === "otp" ? "bg-primary" : "bg-lightGray"
                       }`}
-                    ></div>
+                    />
                   </div>
 
                   {activeTab !== "otp" ? (
@@ -205,7 +204,7 @@ const SellerSignUpModal = () => {
                         <>
                           <div>
                             <p className="font-Inter text-heading text-base font-600">
-                              Address
+                              Address*
                             </p>
                             <Input
                               placeholder="Enter your address"
@@ -218,10 +217,11 @@ const SellerSignUpModal = () => {
 
                           <div>
                             <p className="font-Inter text-heading text-base font-600">
-                              Email
+                              Email*
                             </p>
                             <Input
                               placeholder="Enter your email"
+                              type="email"
                               {...register("email", { required: true })}
                             />
                             {errors.mobileNumber && (
