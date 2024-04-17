@@ -6,7 +6,7 @@ import rightArrowSvg from "../assets/icons/right_arrow_2.svg"
 import person_5 from "../assets/images/person_5_horizontal.svg"
 
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 const CustomerReview = () => {
 
@@ -51,7 +51,18 @@ const CustomerReview = () => {
         },
     ]
 
-    console.log(REVIEWS.length, item);
+    const handleScroll = () => {
+        const scrollLeft = cardRef.current;
+        // console.log(scrollLeft.);
+        // const cardWidth = cardRef.current.clientWidth;
+        // const newIndex = Math.round(scrollLeft / cardWidth);
+        // setItem(newIndex);
+    };
+
+
+
+    const cardRef = useRef(null)
+
     return (
         <div className="my-[52px]  max-h-[952px] flex  justify-center items-center flex-col md:my-[65px]">
 
@@ -72,14 +83,14 @@ const CustomerReview = () => {
 
             {/* carousel start */}
 
-            <div className="flex justify-center md:mt-[76px] mt-[42px]  items-center w-full gap-9 ">
+            <div className="flex justify-center md:mt-[76px] mt-[42px]  items-center w-full  gap-9 ">
                 {/* back btn */}
                 <div style={{
                     background: `linear-gradient(0deg, rgba(0, 71, 16, 0.50) 0%, rgba(0, 71, 16, 0.50) 100%), url(${man_counting_money})`,
                     backgroundPosition: "center",
                     backgroundSize: "cover"
 
-                }} className={`hidden  w-[96px] h-[351px] rounded-lg md:flex justify-center items-center    `} >
+                }} className={`hidden  min-w-[96px] h-[351px] rounded-lg lg:flex justify-center items-center    `} >
                     <a >
                         <button
                             disabled={item === 0}
@@ -89,13 +100,15 @@ const CustomerReview = () => {
                     </a>
                 </div>
 
-                <div className="transition-transform duration-500">
+                <div ref={cardRef} className="transition-transform duration-500">
                     {/*  */}
-                    <div className="  bg-white  min-w-[385px] max-w-[385px] md:min-w-[810px] md:max-w-[810px]  mx-3 flex overflow-y-hidden  overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px] ">
+                    <div onScroll={handleScroll} className="min-w-[300px]  max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px]  mx-3 flex overflow-y-hidden  overflow-x-scroll lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px] ">
                         {
-                            REVIEWS.map(card => <div style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-[385px] md:min-w-[810px]">
+                            REVIEWS.map(card => <div style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-full md:min-w-[810px]">
                                 <div id="item1" className=" flex md:flex-row flex-col  gap-11 items-center  w-full">
-                                    <img src={card.img} className="object-cover object-center rounded-l-md rounded-md      lg:rounded-e-none  w-[385px] h-[219px] md:w-[262px] md:h-[351px]" />
+                                    <img src={card.img} className="object-cover object-center rounded-l-md rounded-md lg:rounded-e-none  
+                                    w-full h-[219px] md:w-[262px] md:h-[351px]
+                                    " />
                                     <div className="flex md:w-[447.3px] pb-[26px] ps-4 flex-col gap-[24.5px]">
                                         <img className="w-[54.28px] object-contain object-center h-[44.450px]" src={quoteSvg} alt="" />
                                         <p>{card.desc}</p>
@@ -115,14 +128,15 @@ const CustomerReview = () => {
                     {/* next btn */}
 
                 </div>
+
+
                 <div style={{
                     background: `linear-gradient(0deg, rgba(0, 71, 16, 0.50) 0%, rgba(0, 71, 16, 0.50) 100%), url(${man_counting_money})`,
                     backgroundPosition: "center",
                     backgroundSize: "cover"
-
-                }} className={`w-[96px] hidden h-[351px] rounded-lg md:flex justify-center items-center
+                }}
+                    className={`min-w-[96px] hidden h-[351px] rounded-lg lg:flex justify-center items-center
 `}>
-
                     <a >
                         <button
                             disabled={item === (REVIEWS.length - 1)}
@@ -134,7 +148,7 @@ const CustomerReview = () => {
 
             </div >
             {/* ellipse for small screen */}
-            < div className="flex md:hidden justify-center mt-6 items-center gap-1" >
+            < div className="flex lg:hidden justify-center mt-6 items-center gap-1" >
                 {
                     REVIEWS.map((r, i) => <a>
                         <button onClick={() => setItem(i)} className={`h-2 ${+i == item ? "bg-primary" : "bg-gray"} w-2 rounded-full  `}></button>
