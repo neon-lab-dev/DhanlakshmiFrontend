@@ -128,7 +128,7 @@ const OurProducts = () => {
     }, [activeTab]);
     return (
         <div className='wrapper mt-[125px]'>
-            <div className='flex flex-col justify-center items-center'>
+            <div className='flex flex-col gap-6 justify-center items-center'>
             <div className="flex items-center justify-center lg:justify-start gap-3">
             <div className="p-[6px] rounded-lg w-10 h-10 flex justify-center items-center bg-bgBox/25">
               <img src={thumbsUp} alt="" />
@@ -138,7 +138,7 @@ const OurProducts = () => {
             </p>
           </div>
 
-          <h1 className="font-Inter text-center font-700 text-[32px] text-heading capitalize">
+          <h1 className="font-Inter text-center leading-[45px] text-[32px] text-heading capitalize">
           See what we make and serve
           </h1>
 
@@ -147,7 +147,7 @@ const OurProducts = () => {
           </p>
 
 
-          <div className='flex items-center gap-3 mt-6'>
+          <div className='flex items-center gap-2 md:gap-3'>
           {productData.map((product, i) => (
           <Button
             key={i}
@@ -163,20 +163,30 @@ const OurProducts = () => {
           </div>
 
 
-          <div className='flex items-center justify-between w-[1066px] mt-[106px]'>
-          <div onClick={() => setItem(item === 0 ? item : item - 1)} className='w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer'>
+          <div className='flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1066px] mt-[106px] px-0 lg:px-10 xl:px-0'>
+          <div onClick={() => setItem(item === 0 ? item : item - 1)} className='w-[50px] h-[50px] rounded-full bg-primary hidden lg:flex justify-center items-center cursor-pointer'>
                 <img src={leftArrow} alt="" />
             </div>
 
-            <div className='transition-transform duration-500'>
-            <div className='flex h-[389.98px] rounded-xl shadow-2xl min-w-[385px] max-w-[385px] md:min-w-[848px] md:max-w-[848px] overflow-y-hidden overflow-x-hidden bg-white'>
+            <div className='transition-transform duration-500 pl-5'>
+            <div className='flex h-auto rounded-xl shadow-2xl w-full min-w-[380px] max-w-[380px] md:min-w-[848px] md:max-w-[848px] overflow-x-hidden bg-white'>
                 
 
                {
                 products.map(product => 
-                  <div key={product.id} style={{ transform: `translateX(-${item * 100}%)` }} className='transition-all duration-500 flex items-center justify-between gap-[34px] min-w-[385px] md:min-w-[848px]'>
-                  <div className='w-[325px] flex justify-center items-center border-r border-[#E9E9E9]'>
-                    <img src={img} alt="" />
+                  <div key={product.id} style={{ transform: `translateX(-${item * 100}%)` }} className='transition-all duration-500 flex flex-col lg:flex-row items-center justify-between gap-[34px] min-w-[380px] md:min-w-[848px] p-5'>
+
+                  <div className='w-full lg:w-[300px] flex justify-between items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]'>
+                    <div onClick={() => setItem(item === 0 ? item : item - 1)} className='w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer'>
+                <img src={leftArrow} alt="" />
+            </div>
+
+            <img src={img} alt="" />
+
+
+            <div onClick={() => setItem(item === (products.length - 1) ? item : item + 1)}  className='w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer'>
+                <img src={rightArrow} alt="" />
+            </div>
                    </div>
                    
    
@@ -188,7 +198,7 @@ const OurProducts = () => {
    {product?.description}
    </p>
    
-   <h1 className="font-Inter text-center lg:text-start font-600 text-[24px] text-heading capitalize">{product?.subHeading}</h1>
+   <h1 className="font-Inter font-600 text-[24px] text-heading capitalize">{product?.subHeading}</h1>
 
    {
     product?.subLists.map((list, index) => 
@@ -208,7 +218,7 @@ const OurProducts = () => {
         </div>
 
 
-            <div onClick={() => setItem(item === (products.length - 1) ? item : item + 1)}  className='w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer'>
+            <div onClick={() => setItem(item === (products.length - 1) ? item : item + 1)}  className='w-[50px] h-[50px] rounded-full bg-primary hidden lg:flex justify-center items-center cursor-pointer'>
                 <img src={rightArrow} alt="" />
             </div>
           </div>
