@@ -49,7 +49,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   to={item.link}
-                  className="text-bodyText text-sm font-400 underline"
+                  className="text-bodyText text-sm font-400"
                 >
                   {item.name}
                 </Link>
@@ -63,8 +63,8 @@ const Footer = () => {
             </h6>
             <div className="flex flex-col gap-2">
               {[
-                { name: "rjdtkhx@gmail.com", link: "mailto:rjdtkhx@gmail.com" },
                 { name: "91355675556", link: "tel:91355675556" },
+                { name: "rjdtkhx@gmail.com", link: "mailto:rjdtkhx@gmail.com" },
                 { name: "2118 Thornridge Cir. Syracuse, Connecticut 35624" },
               ].map((item, index) => (
                 <>
@@ -115,7 +115,7 @@ const Footer = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 type="button"
-                className="md:w-6 md:h-6"
+                className="w-11 h-11 md:w-6 md:h-6"
               >
                 <img className="w-full h-full" src={upArrowGreen} alt="" />
               </button>
