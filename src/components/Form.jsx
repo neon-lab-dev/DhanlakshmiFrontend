@@ -3,21 +3,45 @@ import Button from "./Button";
 import Input from "./Input";
 import { useForm } from "react-hook-form";
 import ErrorLine from "./ErrorLine";
+import { useMutation } from "@tanstack/react-query";
+import { contact } from "../api/contact";
+import Swal from "sweetalert2";
+import Spinner from "./Spinner";
 const Form = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    mutate(data);
   };
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: contact,
+    onSuccess: () => {
+      Swal.fire({
+        icon: "success",
+        title: "Thank you!",
+        text: "Thanks for your message, we’ll get in touch soon.",
+      });
+      reset();
+    },
+    onError: () => {
+      Swal.fire({
+        icon: "error",
+        title: "Failed!",
+        text: "Failed to send message, Please try again.",
+      });
+    },
+  });
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-7 w-full"
+      className="flex flex-col gap-7 w-full lg:max-w-[50%]"
     >
       <div className="flex flex-col gap-2">
         <p className="text-heading text-base font-600">Name</p>
@@ -33,9 +57,9 @@ const Form = () => {
         <Input
           type="text"
           placeholder="Enter your contact"
-          {...register("contact", { required: true })}
+          {...register("contact_number", { required: true })}
         />
-        {errors.contact && <ErrorLine error="Contact is required" />}
+        {errors.contact_number && <ErrorLine error="Contact is required" />}
       </div>
 
       <div className="flex items-center justify-between gap-5 w-full">
@@ -54,9 +78,9 @@ const Form = () => {
           <Input
             type="text"
             placeholder="Enter your district/ city"
-            {...register("district", { required: true })}
+            {...register("city", { required: true })}
           />
-          {errors.district && <ErrorLine error="District is required" />}
+          {errors.city && <ErrorLine error="District is required" />}
         </div>
       </div>
 
@@ -70,7 +94,16 @@ const Form = () => {
         {errors.message && <ErrorLine error="Message is required" />}
       </div>
 
-      <Button className="w-[200px]">Get in touch</Button>
+      <Button className="w-[200px]">
+        {isPending ? (
+          <div className="flex items-center gap-3 justify-center">
+            <span>Loading</span>
+            <Spinner />
+          </div>
+        ) : (
+          <span>Get in touch</span>
+        )}
+      </Button>
     </form>
   );
 };
