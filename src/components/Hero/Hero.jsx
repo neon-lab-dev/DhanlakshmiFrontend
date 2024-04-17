@@ -3,6 +3,9 @@ import "./Hero.css";
 import profile1 from "../../assets/images/profile_1.svg";
 import profile2 from "../../assets/images/profile_2.svg";
 import profile3 from "../../assets/images/profile_3.svg";
+import Button from "../Button";
+import { useGlobalContext } from "../../context/GlobalContext";
+
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [txts, setTxts] = useState([]);
@@ -12,6 +15,8 @@ export default function Hero() {
   const imageTimer = 6000;
   const imgSrcs = [profile1, profile2, profile3];
   const imageIndexRef = useRef(0);
+  const { setIsUserSignUpModalOpen, setIsSellerSignUpModalOpen } =
+    useGlobalContext();
 
   useEffect(() => {
     const animateText = () => {
@@ -74,8 +79,9 @@ export default function Hero() {
       style={
         window.innerWidth < 768
           ? {
-              backgroundImage:
-                `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(${imgSrcs[imageIndexRef.current]})`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(${
+                imgSrcs[imageIndexRef.current]
+              })`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }
@@ -87,9 +93,7 @@ export default function Hero() {
         <div className="flex gap-9 max-md:flex-col max-md:gap-0">
           <div className="flex grow w-[60%] flex-col max-md:ml-0 max-md:w-full">
             <div className="flex flex-col pt-3.5 mt-3.5 max-md:max-w-full">
-              <div
-                className="mt-3.5 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
-              >
+              <div className="mt-3.5 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
                 <div className="animate-text">
                   <span className="font-bold text-heading max-md:text-white">
                     Nothing Like{" "}
@@ -121,12 +125,15 @@ export default function Hero() {
                 Cattlefeed supplements. Join us in harvesting prosperity.
               </div>
               <div className="flex gap-3 max-md:w-[100%] max-md:flex-col self-start mt-10 text-lg font-medium text-center">
-                <button className="justify-center px-6 py-4 text-white bg-lime-600 rounded max-md:px-5">
+                <Button onClick={() => setIsUserSignUpModalOpen(true)}>
                   Register as User
-                </button>
-                <button className="justify-center px-6 py-4 text-lime-600 rounded border border-lime-600 border-solid max-md:px-5">
+                </Button>
+                <Button
+                  variant="secondary"
+                  onClick={() => setIsSellerSignUpModalOpen(true)}
+                >
                   Become our Seller
-                </button>
+                </Button>
               </div>
               <div className="max-md:hidden mt-16 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">

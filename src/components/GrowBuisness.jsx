@@ -1,8 +1,10 @@
 import React from "react";
 import GrowYourBuisenessSVG from "../assets/images/grow_your_business_with_us.svg";
 import ManCountingSVG from "../assets/images/man_counting_money.svg";
+import { useGlobalContext } from "../context/GlobalContext";
 
 export default function GrowBuisness() {
+  const { setIsSellerSignUpModalOpen } = useGlobalContext();
   return (
     <section
       style={{
@@ -27,7 +29,10 @@ export default function GrowBuisness() {
                 your reach, boost your sales, and cultivate success with us as
                 your partner in growth.
               </p>
-              <button className="justify-center max-md:self-center self-start px-6 py-4 mt-6 text-lg font-medium text-center bg-white rounded text-green-950 max-md:px-5">
+              <button
+                onClick={() => setIsSellerSignUpModalOpen(true)}
+                className="justify-center max-md:self-center self-start px-6 py-4 mt-6 text-lg font-medium text-center bg-white rounded text-green-950 max-md:px-5"
+              >
                 Become a Seller
               </button>
             </div>
