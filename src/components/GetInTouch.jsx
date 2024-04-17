@@ -5,12 +5,14 @@ import Form from "./Form";
 
 const GetInTouch = () => {
   return (
-    <section className="wrapper">
+    <section 
+    id="contact-us"
+    className="wrapper">
       <div className="w-full py-12 flex flex-col gap-12">
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center md:items-start">
           <div className="flex items-center justify-center md:justify-start gap-3">
-            <div className="p-1 rounded-lg w-6 h-6 flex justify-center items-center bg-bgBox/25">
+            <div className="p-1 rounded-lg w-8 h-8 flex justify-center items-center bg-bgBox/25">
               <img src={thumbsUp} alt="" />
             </div>
             <span className="text-lg font-Poppins">Contact us</span>

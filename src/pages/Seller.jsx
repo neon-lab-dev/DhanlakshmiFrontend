@@ -7,21 +7,22 @@ import InfoCard from "../components/InfoCard";
 import bg from "../assets/images/dotdotdot.svg";
 import TestimonialCard from "../components/TestimonialCard";
 import GetInTouch from "../components/GetInTouch";
+import { useGlobalContext } from "../context/GlobalContext";
+import TESTIMONIALS from "../assets/data/testimonials";
 
 const Seller = () => {
+  const { setIsSellerSignUpModalOpen } = useGlobalContext();
   return (
     <div className="flex flex-col">
       <section
-        className="bg-cover bg-center h-full w-full"
+        className="!bg-cover xs:!bg-center !bg-[-560px] h-full w-full"
         style={{
           background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%), linear-gradient(0deg, rgba(0, 71, 16, 0.30) 0%, rgba(0, 71, 16, 0.30) 100%), url(${sellerHero})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
         }}
       >
-        <div className="wrapper  md:pt-32">
-          <div className="flex flex-col gap-4 md:gap-6 mt-28 md:mt-32 mb-7 md:mb-14 md:max-w-[750px]">
-            <h1 className="text-white text-5xl font-600 leading-[64px]">
+        <div className="wrapper pt-[100px] sm:pt-[179px] pb-8 md:py-[70px] md:mt-[140px]">
+          <div className="flex flex-col gap-4 md:gap-6 md:max-w-[750px]">
+            <h1 className="text-white text-[48px] md:text-[64px] font-600 leading-[64px]">
               What is Dhanlakshmi Seller Program?
             </h1>
             <p className="text-base text-white">
@@ -32,7 +33,12 @@ const Seller = () => {
               grow their businesses. Join us today to unlock new opportunities
               for success in the agricultural industry.
             </p>
-            <Button className="w-full font-500 text-lg bg-surface text-bgGradient max-w-[400px] md:w-fit">
+            <Button
+              onClick={() => {
+                setIsSellerSignUpModalOpen(true);
+              }}
+              className="w-full font-500 text-lg bg-surface text-bgGradient max-w-[400px] md:w-fit"
+            >
               Become Our Seller
             </Button>
           </div>
@@ -44,14 +50,14 @@ const Seller = () => {
             <img
               src={thumbsUp}
               alt="thumbs up"
-              className="p-1.5 rounded-lg h-7 w-7 text-lg"
+              className="p-1.5 rounded-lg h-9 w-9 text-lg"
               style={{
                 background: "rgba(223, 151, 24, 0.25)",
               }}
             />
             <span className="text-lg font-Poppins">Our Numbers</span>
           </div>
-          <h3 className="text-3xl font-700 text-center max-w-[350px] md:max-w-none">
+          <h3 className="text-[32px] font-700 text-center max-w-[350px] md:max-w-none">
             Why you should become our seller?
           </h3>
           <p className="text-base w-[90%] max-w-[600px] md:max-w-[750px] text-center text-bodyText">
@@ -78,14 +84,14 @@ const Seller = () => {
             <img
               src={thumbsUp}
               alt="thumbs up"
-              className="p-1.5 rounded-lg h-7 w-7 text-lg"
+              className="p-1.5 rounded-lg h-9 w-9 text-lg"
               style={{
                 background: "rgba(223, 151, 24, 0.25)",
               }}
             />
             <span className="text-lg font-Poppins">Testimonials</span>
           </div>
-          <h3 className="text-3xl font-700 text-center max-w-[350px] md:max-w-none">
+          <h3 className="text-[32px] font-700 text-center max-w-[350px] md:max-w-none">
             Positive feedbacks from our sellers
           </h3>
           <p className="text-base w-[90%] max-w-[600px] md:max-w-[750px] text-center text-bodyText">
@@ -94,14 +100,27 @@ const Seller = () => {
             difference in agricultural excellence.
           </p>
           <div className="flex gap-6 items-center">
-            <Button className="py-2 md:py-3">Become a Seller</Button>
-            <Button variant="secondary" className="py-2 md:py-3">
+            <Button
+              onClick={() => setIsSellerSignUpModalOpen(true)}
+              className="py-2 md:py-3"
+            >
+              Become a Seller
+            </Button>
+            <Button
+              onClick={() => {
+                document
+                  .getElementById("contact-us")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              variant="secondary"
+              className="py-2 md:py-3"
+            >
               Contact Us
             </Button>
           </div>
         </div>
         <div className="flex overflow-hidden justify-center w-full gap-6 px-6 z-10">
-          {sellerCardsInfo.map((card, index) => (
+          {TESTIMONIALS.map((card, index) => (
             <TestimonialCard {...card} key={index} />
           ))}
         </div>
