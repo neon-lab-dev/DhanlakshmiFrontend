@@ -1,7 +1,9 @@
 import React from "react";
 import RegCoverSVG from "../assets/images/grow_your_business_with_us.svg";
+import { useGlobalContext } from "../context/GlobalContext";
 
 export default function RegisterBanner() {
+  const { setIsUserSignUpModalOpen } = useGlobalContext();
   return (
     <section
       style={{
@@ -22,7 +24,10 @@ export default function RegisterBanner() {
             experience the best of our offerings before anyone else. Register
             now and claim your free gift!
           </p>
-          <button className="flex items-center gap-3 self-center px-6 py-5 mt-6 text-xl leading-4 bg-red-500 rounded-md max-md:px-5">
+          <button
+            onClick={() => setIsUserSignUpModalOpen(true)}
+            className="flex items-center gap-3 self-center px-6 py-5 mt-6 text-xl leading-4 bg-red-500 rounded-md max-md:px-5"
+          >
             <span>Register Now</span>
             <svg
               width="14"
