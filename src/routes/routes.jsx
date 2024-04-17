@@ -1,10 +1,11 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ROUTES } from '.';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ROUTES } from ".";
 
 // COMPONENT
-import Layout from '../components/Layout';
+import Layout from "../components/Layout";
+import Spinner from "../components/Spinner";
 
 const RoutesContainer = () => {
   return (
@@ -16,7 +17,13 @@ const RoutesContainer = () => {
             path={route.path}
             element={
               <Layout>
-                <Suspense fallback={<p>Loading...</p>}>
+                <Suspense
+                  fallback={
+                    <div className="h-screen w-screen flex items-center justify-center">
+                      <Spinner className="h-8 w-8" />
+                    </div>
+                  }
+                >
                   <route.component />
                 </Suspense>
               </Layout>
