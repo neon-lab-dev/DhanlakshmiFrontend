@@ -10,7 +10,7 @@ export default function AboutUs() {
     "Proven quality at the right selling point.",
   ];
   return (
-    <section className="justify-center full-width px-20 max-md:px-0 mt-16 max-md:mt-10 max-md:max-w-full">
+    <section id="about-us" className="justify-center full-width px-20 max-md:px-0 mt-16 max-md:mt-10 max-md:max-w-full">
       <div className="flex gap-5 max-md:flex-col-reverse max-md:gap-0 max-md:w-full">
         <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full max-md:h-[300px]">
           <div style={{backgroundImage: `url(${AboutUsSvg})`}} className="flex flex-col grow h-[100%] bg-cover bg-center rounded-3xl	max-md:rounded-none justify-center max-md:mt-10 max-md:max-w-full">

@@ -1,21 +1,24 @@
-import React from 'react'
-import CustomerReview from './CustomerReview '
-import Hero from '../components/Hero/Hero'
-import GrowBuissness from '../components/GrowBuisness'
-import AboutUs from '../components/AboutUs'
-import RegisterBanner from '../components/RegisterBanner'
-
+import React from "react";
+import CustomerReview from "./CustomerReview ";
+import Hero from "../components/Hero/Hero";
+import AboutUs from "../components/AboutUs";
+import RegisterBanner from "../components/RegisterBanner";
+import GrowBuisness from "../components/GrowBuisness";
+import OurProducts from "../components/OurProducts/OurProducts";
+import GetInTouch from "../components/GetInTouch";
 
 const Landing = () => {
   return (
     <div>
-      <Hero/>
+      <Hero />
+      <AboutUs />
+      <RegisterBanner />
+      <OurProducts />
+      <GrowBuisness />
       <CustomerReview />
-      <GrowBuissness/>
-      <AboutUs/>
-      <RegisterBanner/>
+      <GetInTouch />
     </div>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;
