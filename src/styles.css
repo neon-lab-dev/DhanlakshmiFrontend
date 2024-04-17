@@ -3,6 +3,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* font foco register */
+@font-face {
+  font-family: "Foco";
+  src: url("./assets//fonts//Foco_Trial_Rg.ttf");
+}
+
 @layer base {
   * {
     @apply font-Inter;

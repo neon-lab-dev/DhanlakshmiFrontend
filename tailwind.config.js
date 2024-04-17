@@ -27,6 +27,7 @@ module.exports = {
     fontFamily: {
       Inter: ["Inter", "sans-serif"],
       Poppins: ["Poppins", "sans-serif"],
+      Foco: ["Foco", "sans-serif"],
     },
     fontWeight: {
       300: "300",

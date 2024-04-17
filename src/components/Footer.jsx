@@ -22,7 +22,7 @@ const Footer = () => {
                 alt=""
               />
               <div className="flex flex-col ">
-                <h6 className="text-[20.253px] font-800 text-brown">
+                <h6 className="text-[20.253px] font-Foco font-800 text-brown">
                   Dhanlakshmi Organics
                 </h6>
                 <span className="text-primary font-Inter text-[11.102px] font-500">

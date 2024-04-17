@@ -77,7 +77,7 @@ const Header = () => {
             className="w-[51px] md:w-[78px] h-[41px] md:h-[63px] object-contain object-center"
           />
           <div className="flex flex-col md:gap-1">
-            <p className="text-accent font-800 text-lg md:text-xl lg:text-[30px] lg:leading-[24.527px]">
+            <p className="text-accent font-Foco font-800 text-lg md:text-xl lg:text-[30px] lg:leading-[24.527px]">
               Dhanlakshmi Organics
             </p>
             <p className="text-primary text-xs sm:text-sm md:text-[16px] md:leading-[24.527px] font-500 font-Inter">
