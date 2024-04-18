@@ -6,12 +6,11 @@ import rightArrowSvg from "../assets/icons/right_arrow_2.svg"
 import person_5 from "../assets/images/standing-farmer.png"
 
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const CustomerReview = () => {
 
     const [item, setItem] = useState(0)
-
 
     const REVIEWS = [
         {
@@ -51,18 +50,26 @@ const CustomerReview = () => {
         },
     ]
 
-    const handleScroll = () => {
-        const scrollLeft = cardRef.current;
-        // console.log(scrollLeft.);
-        // const cardWidth = cardRef.current.clientWidth;
-        // const newIndex = Math.round(scrollLeft / cardWidth);
-        // setItem(newIndex);
+    // for carousel sliding on small screen
+    let scrollTimer;
+    const handleScroll = (e) => {
+        clearTimeout(scrollTimer);
+        const direction = e.deltaX > 0 ? 1 : -1;
+        scrollTimer = setTimeout(() => {
+            if (direction === 1) {
+                if (item < REVIEWS.length - 1) {
+                    setItem(item + 1);
+                }
+            } else {
+                if (item > 0) {
+                    setItem(item - 1); // Decrement item index
+                }
+            }
+        }, 200);
     };
 
 
-
     const cardRef = useRef(null)
-
     return (
         <div className="my-[52px]  max-h-[952px] flex  justify-center items-center flex-col md:my-[65px]">
 
@@ -102,7 +109,9 @@ const CustomerReview = () => {
 
                 <div ref={cardRef} className="transition-transform duration-500">
                     {/*  */}
-                    <div onScroll={handleScroll} className="min-w-[300px]  max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px]  mx-3 flex overflow-y-hidden  overflow-x-scroll lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px] ">
+                    <div
+                        onWheelCapture={handleScroll}
+                        className="min-w-[300px]  max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px]  mx-3 flex overflow-y-hidden  overflow-x-hidden lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px] ">
                         {
                             REVIEWS.map(card => <div key={card.id} style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-full md:min-w-[810px]">
                                 <div id="item1" className=" flex md:flex-row flex-col  gap-11 items-center  w-full">
