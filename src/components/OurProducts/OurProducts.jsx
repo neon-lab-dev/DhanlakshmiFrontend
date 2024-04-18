@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllProducts } from "../../api/products";
 import { Skeleton } from "../Skeleton";
 
-const CATEGORIES = ["Bio Stimulae", "Pesticides", "Cattle Feed"];
+const CATEGORIES = ["Bio Stimulate", "Pesticides", "Cattle Feed"];
 
 const OurProducts = () => {
   const productData = [
@@ -196,12 +196,12 @@ const OurProducts = () => {
                     <div
                       key={index}
                       style={{ transform: `translateX(-${item * 100}%)` }}
-                      className="transition-all duration-500 flex flex-col lg:flex-row items-center gap-[34px] min-w-[380px] md:min-w-[848px] p-5"
+                      className="transition-all duration-500 flex flex-col lg:flex-row gap-[34px] min-w-[380px] md:min-w-[848px] p-5"
                     >
                       <div className="w-full lg:w-[300px] flex justify-between items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]">
                         <div
                           onClick={() => setItem(item === 0 ? item : item - 1)}
-                          className="w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer"
+                          className="w-[50px] h-[50px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
                         >
                           <img src={leftArrow} alt="" />
                         </div>
@@ -214,7 +214,7 @@ const OurProducts = () => {
                               item === products.length - 1 ? item : item + 1
                             )
                           }
-                          className="w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer"
+                          className="w-[50px] h-[50px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
                         >
                           <img src={rightArrow} alt="" />
                         </div>
