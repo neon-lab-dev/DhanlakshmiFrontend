@@ -37,10 +37,6 @@ const Product = () => {
     }
   }, [activeTab, data]);
 
-  useEffect(() => {
-    console.log(filteredProducts);
-  }, [filteredProducts]);
-
   return (
     <div className="flex flex-col gap-5 wrapper">
       <h2 className="text-heading font-600 font-Inter text-xl">Products</h2>
