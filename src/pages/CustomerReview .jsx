@@ -1,9 +1,9 @@
 import orangeThumbSvg from "../assets/icons/orange_thums-up.svg"
 import quoteSvg from "../assets/icons/double_quote.svg"
 import leftArrowSvg from "../assets/icons/left_arrow.svg"
-import man_counting_money from "../assets/images/man_counting_money.svg"
+import man_counting_money from "../assets/images/man-counting-money.png"
 import rightArrowSvg from "../assets/icons/right_arrow_2.svg"
-import person_5 from "../assets/images/person_5_horizontal.svg"
+import person_5 from "../assets/images/standing-farmer.png"
 
 
 import { useRef, useState } from "react"
@@ -104,11 +104,13 @@ const CustomerReview = () => {
                     {/*  */}
                     <div onScroll={handleScroll} className="min-w-[300px]  max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px]  mx-3 flex overflow-y-hidden  overflow-x-scroll lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px] ">
                         {
-                            REVIEWS.map(card => <div style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-full md:min-w-[810px]">
+                            REVIEWS.map(card => <div key={card.id} style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-full md:min-w-[810px]">
                                 <div id="item1" className=" flex md:flex-row flex-col  gap-11 items-center  w-full">
                                     <img src={card.img} className="object-cover object-center rounded-l-md rounded-md lg:rounded-e-none  
                                     w-full h-[219px] md:w-[262px] md:h-[351px]
-                                    " />
+                                    " 
+                                    alt=""
+                                    />
                                     <div className="flex md:w-[447.3px] pb-[26px] ps-4 flex-col gap-[24.5px]">
                                         <img className="w-[54.28px] object-contain object-center h-[44.450px]" src={quoteSvg} alt="" />
                                         <p>{card.desc}</p>
@@ -151,7 +153,7 @@ const CustomerReview = () => {
             < div className="flex lg:hidden justify-center mt-6 items-center gap-1" >
                 {
                     REVIEWS.map((r, i) => <a>
-                        <button onClick={() => setItem(i)} className={`h-2 ${+i == item ? "bg-primary" : "bg-gray"} w-2 rounded-full  `}></button>
+                        <button key={r.id} onClick={() => setItem(i)} className={`h-2 ${+i == item ? "bg-primary" : "bg-gray"} w-2 rounded-full`}></button>
                     </a >
                     )
                 }

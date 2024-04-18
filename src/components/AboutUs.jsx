@@ -1,5 +1,5 @@
 import React from "react";
-import AboutUsSvg from "../assets/images/about_us.svg";
+import aboutUsImg from "../assets/images/aboutUs.png";
 
 export default function AboutUs() {
   const whyChooseUs = [
@@ -13,7 +13,7 @@ export default function AboutUs() {
     <section id="about-us" className="justify-center full-width px-20 max-md:px-0 mt-16 max-md:mt-10 max-md:max-w-full">
       <div className="flex gap-5 max-md:flex-col-reverse max-md:gap-0 max-md:w-full">
         <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full max-md:h-[300px]">
-          <div style={{backgroundImage: `url(${AboutUsSvg})`}} className="flex flex-col grow h-[100%] bg-cover bg-center rounded-3xl	max-md:rounded-none justify-center max-md:mt-10 max-md:max-w-full">
+          <div style={{backgroundImage: `url(${aboutUsImg})`}} className="flex flex-col grow h-[100%] bg-cover bg-center rounded-3xl	max-md:rounded-none justify-center max-md:mt-10 max-md:max-w-full">
           </div>
         </div>
         <div className="flex py-8 flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
@@ -30,15 +30,15 @@ export default function AboutUs() {
                   <path
                     d="M23.5246 12.5001C23.5246 6.41116 18.5885 1.4751 12.4996 1.4751C6.41067 1.4751 1.47461 6.41116 1.47461 12.5001C1.47461 18.589 6.41067 23.5251 12.4996 23.5251C18.5885 23.5251 23.5246 18.589 23.5246 12.5001Z"
                     stroke="#DF9718"
-                    stroke-width="1.2"
-                    stroke-miterlimit="10"
+                    strokeWidth="1.2"
+                    strokeMiterlimit="10"
                   />
                   <circle cx="12.5098" cy="18.3374" r="1.125" fill="#DF9718" />
                   <path
                     d="M9.13867 9.84137C9.1385 8.0505 10.3463 6.30129 12.7203 6.30127C15.0942 6.30125 16.6223 8.66844 15.4691 10.8826C14.4279 12.8817 12.4704 13.4638 12.4704 15.7138"
                     stroke="#DF9718"
-                    stroke-width="1.2"
-                    stroke-linecap="round"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>

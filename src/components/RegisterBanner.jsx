@@ -1,5 +1,5 @@
 import React from "react";
-import RegCoverSVG from "../assets/images/grow_your_business_with_us.svg";
+import RegCoverSVG from "../assets/images/grow-your-business-bg.png";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function RegisterBanner() {

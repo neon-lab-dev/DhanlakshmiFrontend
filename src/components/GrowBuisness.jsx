@@ -1,6 +1,6 @@
 import React from "react";
-import GrowYourBuisenessSVG from "../assets/images/grow_your_business_with_us.svg";
-import ManCountingSVG from "../assets/images/man_counting_money.svg";
+import growYourBuisenessbg from "../assets/images/grow-your-business-bg.png";
+import manCountingImg from "../assets/images/man-counting-money.png";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function GrowBuisness() {
@@ -8,7 +8,7 @@ export default function GrowBuisness() {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(${GrowYourBuisenessSVG})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(${growYourBuisenessbg})`,
         backgroundPosition: "bottom",
         backgroundSize: "cover",
       }}
@@ -38,8 +38,9 @@ export default function GrowBuisness() {
             </div>
           </div>
           <img
-            src={ManCountingSVG}
+            src={manCountingImg}
             className="h-[160%] w-[34%] max-md:hidden object-cover absolute right-0 bottom-0"
+            alt=""
           />
         </div>
       </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
-import profile1 from "../../assets/images/profile_1.svg";
-import profile2 from "../../assets/images/profile_2.svg";
-import profile3 from "../../assets/images/profile_3.svg";
+import profile1 from "../../assets/images/img1.png";
+import profile2 from "../../assets/images/img2.png";
+import profile3 from "../../assets/images/img3.png";
 import Button from "../Button";
 import { useGlobalContext } from "../../context/GlobalContext";
 
