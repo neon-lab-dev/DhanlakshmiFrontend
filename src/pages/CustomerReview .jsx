@@ -1,16 +1,41 @@
 import orangeThumbSvg from "../assets/icons/orange_thums-up.svg"
 import quoteSvg from "../assets/icons/double_quote.svg"
 import leftArrowSvg from "../assets/icons/left_arrow.svg"
-import man_counting_money from "../assets/images/man_counting_money.svg"
+import man_counting_money from "../assets/images/man-counting-money.png"
 import rightArrowSvg from "../assets/icons/right_arrow_2.svg"
-import person_5 from "../assets/images/person_5_horizontal.svg"
+import person_5 from "../assets/images/standing-farmer.png"
+import { useRef, useState } from "react"
 
-
-import { useEffect, useRef, useState } from "react"
 
 const CustomerReview = () => {
 
-    const [item, setItem] = useState(0)
+    const [item, setItem] = useState(0);
+    const [touchStartX, setTouchStartX] = useState(null);
+    const [touchMoveX, setTouchMoveX] = useState(null);
+    const carouselRef = useRef(null);
+
+    const handleTouchStart = (event) => {
+        setTouchStartX(event.touches[0].clientX);
+    };
+
+    const handleTouchMove = (event) => {
+        setTouchMoveX(event.touches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX && touchMoveX) {
+            const difference = touchStartX - touchMoveX;
+            if (difference > 100) {
+                // Swiped left
+                setItem(Math.min(item + 1, REVIEWS.length - 1));
+            } else if (difference < -100) {
+                // Swiped right
+                setItem(Math.max(item - 1, 0));
+            }
+        }
+        setTouchStartX(null);
+        setTouchMoveX(null);
+    };
 
     const REVIEWS = [
         {
@@ -50,26 +75,8 @@ const CustomerReview = () => {
         },
     ]
 
-    // for carousel sliding on small screen
-    let scrollTimer;
-    const handleScroll = (e) => {
-        clearTimeout(scrollTimer);
-        const direction = e.deltaX > 0 ? 1 : -1;
-        scrollTimer = setTimeout(() => {
-            if (direction === 1) {
-                if (item < REVIEWS.length - 1) {
-                    setItem(item + 1);
-                }
-            } else {
-                if (item > 0) {
-                    setItem(item - 1); // Decrement item index
-                }
-            }
-        }, 200);
-    };
 
 
-    const cardRef = useRef(null)
     return (
         <div className="my-[52px]  max-h-[952px] flex  justify-center items-center flex-col md:my-[65px]">
 
@@ -78,11 +85,11 @@ const CustomerReview = () => {
 
                     <div className="flex justify-center items-center gap-3 self-stretch">
                         <img src={orangeThumbSvg} alt="" />
-                        <h6 className="text-black text-lg font-400">Testimonials</h6>
+                        <h6 className="text-black font-Inter text-lg font-400">Testimonials</h6>
                     </div>
 
-                    <h6 className="my-6 text-black text-center font-700 text-[32px]">Customer Reviews</h6>
-                    <p className="text-center">Explore testimonials from satisfied customers and discover the impact of Dhanlakshmi Organics firsthand. Join us and experience the difference in agricultural excellence.</p>
+                    <h6 className="my-6 text-black text-center font-Inter font-700 text-[32px]">Customer Reviews</h6>
+                    <p className="text-center font-Inter text-base font-400">Explore testimonials from satisfied customers and discover the impact of Dhanlakshmi Organics firsthand. Join us and experience the difference in agricultural excellence.</p>
 
                 </div>
             </div>
@@ -107,23 +114,28 @@ const CustomerReview = () => {
                     </a>
                 </div>
 
-                <div ref={cardRef} className="transition-transform duration-500">
+                <div className="transition-transform duration-500">
                     {/*  */}
                     <div
-                        onWheelCapture={handleScroll}
-                        className="min-w-[300px]  max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px]  mx-3 flex overflow-y-hidden  overflow-x-hidden lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px] ">
+                        className="min-w-[300px] max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px] mx-3 flex overflow-y-hidden  overflow-x-hidden lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px]"
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
+                        ref={carouselRef}>
                         {
-                            REVIEWS.map(card => <div style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-full md:min-w-[810px]">
+                            REVIEWS.map(card => <div key={card.id} style={{ transform: `translateX(-${item * 100}%)` }} className="h-full transition-all duration-500 min-w-full md:min-w-[810px]">
                                 <div id="item1" className=" flex md:flex-row flex-col  gap-11 items-center  w-full">
                                     <img src={card.img} className="object-cover object-center rounded-l-md rounded-md lg:rounded-e-none  
                                     w-full h-[219px] md:w-[262px] md:h-[351px]
-                                    " />
+                                    " 
+                                    alt=""
+                                    />
                                     <div className="flex md:w-[447.3px] pb-[26px] ps-4 flex-col gap-[24.5px]">
                                         <img className="w-[54.28px] object-contain object-center h-[44.450px]" src={quoteSvg} alt="" />
-                                        <p>{card.desc}</p>
+                                        <p className="font-Inter text-base font-400">{card.desc}</p>
                                         <div className="flex flex-col gap-2">
-                                            <h6 className="text-heading text-2xl font-700">{card.name}</h6>
-                                            <span className="text-bodyText font-400 text-base">{card.address}</span>
+                                            <h6 className="text-heading text-2xl font-Inter font-700">{card.name}</h6>
+                                            <span className="text-bodyText font-400 font-Inter text-base">{card.address}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +172,7 @@ const CustomerReview = () => {
             < div className="flex lg:hidden justify-center mt-6 items-center gap-1" >
                 {
                     REVIEWS.map((r, i) => <a>
-                        <button onClick={() => setItem(i)} className={`h-2 ${+i == item ? "bg-primary" : "bg-gray"} w-2 rounded-full  `}></button>
+                        <button key={r.id} onClick={() => setItem(i)} className={`h-2 ${+i == item ? "bg-primary" : "bg-gray"} w-2 rounded-full`}></button>
                     </a >
                     )
                 }

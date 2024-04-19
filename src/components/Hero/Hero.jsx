@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
-import profile1 from "../../assets/images/profile_1.svg";
-import profile2 from "../../assets/images/profile_2.svg";
-import profile3 from "../../assets/images/profile_3.svg";
+import profile1 from "../../assets/images/img1.png";
+import profile2 from "../../assets/images/img2.png";
+import profile3 from "../../assets/images/img3.png";
 import Button from "../Button";
 import { useGlobalContext } from "../../context/GlobalContext";
 
@@ -93,42 +93,46 @@ export default function Hero() {
         <div className="flex gap-9 max-md:flex-col max-md:gap-0">
           <div className="flex grow w-[60%] flex-col max-md:ml-0 max-md:w-full">
             <div className="flex flex-col pt-3.5 mt-3.5 max-md:max-w-full">
-              <div className="mt-3.5 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-lime-600 capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
+              <div className="mt-3.5 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-primary capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
                 <div className="animate-text">
                   <span className="font-bold text-heading max-md:text-white">
                     Nothing Like{" "}
                   </span>
                   <br />
-                  <span className="font-bold">Organic </span>
+                  <span className="font-bold text-primary">Organic </span>
                 </div>
                 <div className="animate-text">
                   <span className="font-bold text-heading max-md:text-white">
                     Let's Build{" "}
                   </span>
                   <br />
-                  <span className="font-bold">Organic </span>
+                  <span className="font-bold text-primary">Organic </span>
                 </div>
                 <div className="animate-text text-in">
                   <span className="font-bold text-heading max-md:text-white">
                     A Step into{" "}
                   </span>
                   <br />
-                  <span className="font-bold">Organic </span>
+                  <span className="font-bold text-primary">Organic </span>
                   <span className="font-bold text-heading max-md:text-white">
                     World
                   </span>
                 </div>
               </div>
-              <div className="mt-10 w-[76%] max-md:w-[100%] text-base	  max-md:text-white  leading-6 text-stone-500 max-md:max-w-full">
+              <div className="mt-10 w-[76%] max-md:w-[100%] text-base	font-Inter font-400  max-md:text-white leading-6 text-bodyText max-md:max-w-full">
                 Welcome to Dhanlakshmi Organics, your trusted partner in
                 agriculture. One stop solution for Fertilisers, Pesticides and
                 Cattlefeed supplements. Join us in harvesting prosperity.
               </div>
               <div className="flex gap-3 max-md:w-[100%] max-md:flex-col self-start mt-10 text-lg font-medium text-center">
-                <Button onClick={() => setIsUserSignUpModalOpen(true)}>
+                <Button 
+                variant="primary"
+                className="text-white font-Inter font-500 text-lg" 
+                onClick={() => setIsUserSignUpModalOpen(true)}>
                   Register as User
                 </Button>
                 <Button
+                className="text-primary font-Inter font-500 text-lg"
                   variant="secondary"
                   onClick={() => setIsSellerSignUpModalOpen(true)}
                 >
@@ -141,14 +145,14 @@ export default function Hero() {
                     <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-heroBorders border-solid shadow-2xl max-md:mt-6">
                       <div
                         style={{ fontWeight: "bold" }}
-                        className="text-2xl text-lime-600 font-bold tracking-tight bg-clip-text"
+                        className="text-2xl text-primary font-Inter font-700 tracking-tight bg-clip-text"
                       >
                         3,400+
                       </div>
-                      <div className="mt-3 text-base font-medium text-heading">
+                      <div className="mt-3 text-base font-500 font-Poppins font-medium text-heading">
                         Costumers
                       </div>
-                      <div className="mt-1.5 text-xs text-neutral-400">
+                      <div className="mt-1.5 text-xs font-400 font-Poppins text-bodyText">
                         Lorem ipsum dolor sit amet, consectetur
                       </div>
                     </div>
@@ -157,14 +161,14 @@ export default function Hero() {
                     <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-heroBorders border-solid shadow-2xl max-md:mt-6">
                       <div
                         style={{ fontWeight: "bold" }}
-                        className="text-2xl text-lime-600 font-bold tracking-tight bg-clip-text"
+                        className="text-2xl text-primary font-Inter font-700 tracking-tight bg-clip-text"
                       >
                         300+
                       </div>
-                      <div className="mt-3 text-base font-medium text-heading">
+                      <div className="mt-3 text-base font-500 font-Poppins font-medium text-heading">
                         Sellers
                       </div>
-                      <div className="mt-1.5 text-xs text-neutral-400">
+                      <div className="mt-1.5 text-xs font-400 font-Poppins text-bodyText">
                         Lorem ipsum dolor sit amet, consectetur
                       </div>
                     </div>
@@ -173,14 +177,14 @@ export default function Hero() {
                     <div className="flex flex-col grow justify-center p-4 w-full bg-white rounded-xl border border-heroBorders border-solid shadow-2xl max-md:mt-6">
                       <div
                         style={{ fontWeight: "bold" }}
-                        className="text-2xl text-lime-600 font-bold tracking-tight bg-clip-text"
+                        className="text-2xl text-primary font-Inter font-700 tracking-tight bg-clip-text"
                       >
                         100+
                       </div>
-                      <div className="mt-3 text-base font-medium text-heading">
+                      <div className="mt-3 text-base font-500 font-Poppins font-medium text-heading">
                         Products
                       </div>
-                      <div className="mt-1.5 text-xs text-neutral-400">
+                      <div className="mt-1.5 text-xs font-400 font-Poppins text-bodyText">
                         Lorem ipsum dolor sit amet, consectetur
                       </div>
                     </div>
