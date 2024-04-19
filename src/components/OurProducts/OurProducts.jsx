@@ -11,107 +11,6 @@ import { Skeleton } from "../Skeleton";
 const CATEGORIES = ["Bio Stimulate", "Pesticides", "Cattle Feed"];
 
 const OurProducts = () => {
-  const productData = [
-    {
-      title: "Bio Stimulae",
-      products: [
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-      ],
-    },
-    {
-      title: "Pesticides",
-      products: [
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-      ],
-    },
-    {
-      title: "Cattle Feed",
-      products: [
-        {
-          heading: "Herbal Pro Cattle Suppliment",
-          description:
-            "Herbal cattle feed supplement compositions to enhance productivity of milk quality in lactating dairy cattle",
-          subHeading: "Benefits",
-          subLists: [
-            "Helps to increase milk production in cattle",
-            "Improves milk let-down",
-            "Promotes good liver health and reduces the risk of ulcers",
-            "Enhances the animal's immunity",
-          ],
-        },
-      ],
-    },
-  ];
 
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -119,11 +18,28 @@ const OurProducts = () => {
   const [products, setProducts] = useState([]);
   const [activeTab, setActiveTab] = useState(CATEGORIES[0]);
 
+  console.log(filteredProducts);
+
+  // useEffect(() => {
+  //   setProducts(
+  //     filteredProducts.find((product) => product.category === activeTab)?.products || []
+  //   );
+  // }, [activeTab]);
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: "products",
+    queryFn: getAllProducts,
+  });
+
   useEffect(() => {
-    setProducts(
-      productData.find((product) => product.title === activeTab)?.products || []
-    );
-  }, [activeTab]);
+    if (data && data.length > 0) {
+      const fData =
+        data.filter((product) => {
+          return product?.category?.toLowerCase() === activeTab?.toLowerCase();
+        }) || [];
+      setFilteredProducts(fData);
+    }
+  }, [activeTab, data]);
 
     const [touchStartX, setTouchStartX] = useState(null);
     const [touchMoveX, setTouchMoveX] = useState(null);
@@ -142,7 +58,7 @@ const OurProducts = () => {
             const difference = touchStartX - touchMoveX;
             if (difference > 100) {
                 // Swiped left
-                setItem(Math.min(item + 1, products.length - 1));
+                setItem(Math.min(item + 1, filteredProducts.length - 1));
             } else if (difference < -100) {
                 // Swiped right
                 setItem(Math.max(item - 1, 0));
@@ -175,7 +91,7 @@ const OurProducts = () => {
         </p>
 
         <div className="flex items-center gap-1 overflow-x-scroll md:gap-3">
-          {productData.map((product, i) => (
+          {CATEGORIES.map((product, i) => (
             <Button
               key={i}
               className="px-4 md:py-3 min-w-fit"
@@ -204,29 +120,33 @@ const OurProducts = () => {
             onTouchEnd={handleTouchEnd}
             ref={carouselRef}
             className="flex h-auto rounded-xl shadow-2xl w-full xs:min-w-[380px] max-w-[380px] md:min-w-[848px] md:max-w-[848px] overflow-x-hidden bg-white">
-              {products.map((product, index) => (
-                <div
-                  key={index}
-                  style={{ transform: `translateX(-${item * 100}%)` }}
-                  className="transition-all duration-500 flex flex-col lg:flex-row items-center justify-between gap-[34px] w-full min-w-[380px] md:min-w-[848px] p-5"
-                >
-                  <div className="w-full lg:w-[300px] flex justify-between items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]">
+              {isLoading ? (
+                <Skeleton className="h-52" />
+              ) : (
+                filteredProducts.length > 0 ? (
+                  filteredProducts.map((product, index) => (
                     <div
-                      onClick={() => setItem(item === 0 ? item : item - 1)}
-                      className="w-[50px] h-[50px] rounded-full bg-primary flex justify-center items-center cursor-pointer"
+                      key={index}
+                      style={{ transform: `translateX(-${item * 100}%)` }}
+                      className="transition-all duration-500 flex flex-col lg:flex-row gap-[34px] min-w-[380px] md:min-w-[848px] p-5"
                     >
-                      <img src={leftArrow} alt="" />
-                    </div>
+                      <div className="w-full lg:w-[300px] flex justify-between items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]">
+                        <div
+                          onClick={() => setItem(item === 0 ? item : item - 1)}
+                          className="w-[40px] h-[40px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
+                        >
+                          <img src={leftArrow} alt="" />
+                        </div>
 
-                        <img src={product?.avatar?.url} alt="" />
+                        <img className="w-[70%] lg:w-[90%]" src={product?.avatar?.url} alt="" />
 
                         <div
                           onClick={() =>
                             setItem(
-                              item === products.length - 1 ? item : item + 1
+                              item === filteredProducts.length - 1 ? item : item + 1
                             )
                           }
-                          className="w-[50px] h-[50px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
+                          className="w-[40px] h-[40px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
                         >
                           <img src={rightArrow} alt="" />
                         </div>
@@ -273,7 +193,7 @@ const OurProducts = () => {
 
           <div
             onClick={() =>
-              setItem(item === products.length - 1 ? item : item + 1)
+              setItem(item === filteredProducts.length - 1 ? item : item + 1)
             }
             className="w-[50px] h-[50px] rounded-full bg-primary hidden lg:flex justify-center items-center cursor-pointer"
           >
