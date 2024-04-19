@@ -20,6 +20,7 @@ module.exports = {
         bgGray: "#F6F6F6",
         lightGray: "#C3C3C3",
         heroBorders: "#EFF0F6",
+        rose : "#ED303B"
       },
       screens: {
         xs: "480px",
