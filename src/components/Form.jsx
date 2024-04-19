@@ -44,7 +44,7 @@ const Form = () => {
       className="flex flex-col gap-7 w-full lg:max-w-[50%]"
     >
       <div className="flex flex-col gap-2">
-        <p className="text-heading text-base font-600">Name</p>
+        <p className="text-heading text-base font-Inter font-600">Name</p>
         <Input
           type="text"
           placeholder="Enter your name"
@@ -53,7 +53,7 @@ const Form = () => {
         {errors.name && <ErrorLine error="Name is required" />}
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-heading text-base font-600">Contact Number</p>
+        <p className="text-heading text-base font-Inter font-600">Contact Number</p>
         <Input
           type="text"
           placeholder="Enter your contact"
@@ -64,7 +64,7 @@ const Form = () => {
 
       <div className="flex items-center justify-between gap-5 w-full">
         <div className="flex flex-col gap-2 w-full">
-          <p className="text-heading text-base font-600">State</p>
+          <p className="text-heading text-base font-Inter font-600">State</p>
           <Input
             type="text"
             placeholder="Enter your state"
@@ -74,7 +74,7 @@ const Form = () => {
         </div>
 
         <div className="flex flex-col gap-2 w-full">
-          <p className="text-heading text-base font-600">District/City</p>
+          <p className="text-heading text-base font-Inter font-600">District/City</p>
           <Input
             type="text"
             placeholder="Enter your district/ city"
@@ -85,7 +85,7 @@ const Form = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <p className="text-heading text-base font-600">Message</p>
+        <p className="text-heading text-base font-Inter font-600">Message</p>
         <Input
           type="text"
           placeholder="Write your message here..."
