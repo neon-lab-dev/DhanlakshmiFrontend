@@ -7,7 +7,7 @@ import { getAllProducts } from "../api/products";
 import { useSearchParams } from "react-router-dom";
 import { Skeleton } from "../components/Skeleton";
 
-const CATEGORIES = ["Bio Stimulae", "Pesticides", "Cattle Feed"];
+const CATEGORIES = ["Bio Stimulate", "Pesticides", "Cattle Feed"];
 
 const Product = () => {
   const { setIsUserSignUpModalOpen } = useGlobalContext();
@@ -36,10 +36,6 @@ const Product = () => {
       setFilteredProducts(fData);
     }
   }, [activeTab, data]);
-
-  useEffect(() => {
-    console.log(filteredProducts);
-  }, [filteredProducts]);
 
   return (
     <div className="flex flex-col gap-5 wrapper">
