@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import thumbsUp from "../../assets/icons/thumbsup.svg";
 import { Link, useSearchParams } from "react-router-dom";
 import Button from "../Button";
@@ -126,6 +126,33 @@ const OurProducts = () => {
       productData.find((product) => product.title === activeTab)?.products || []
     );
   }, [activeTab]);
+
+    const [touchStartX, setTouchStartX] = useState(null);
+    const [touchMoveX, setTouchMoveX] = useState(null);
+    const carouselRef = useRef(null);
+
+    const handleTouchStart = (event) => {
+        setTouchStartX(event.touches[0].clientX);
+    };
+
+    const handleTouchMove = (event) => {
+        setTouchMoveX(event.touches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX && touchMoveX) {
+            const difference = touchStartX - touchMoveX;
+            if (difference > 100) {
+                // Swiped left
+                setItem(Math.min(item + 1, products.length - 1));
+            } else if (difference < -100) {
+                // Swiped right
+                setItem(Math.max(item - 1, 0));
+            }
+        }
+        setTouchStartX(null);
+        setTouchMoveX(null);
+    };
   return (
     <div className="wrapper mt-[125px]">
       <div className="flex flex-col gap-6 justify-center items-center">
@@ -149,7 +176,7 @@ const OurProducts = () => {
           fields."
         </p>
 
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="flex items-center gap-1 overflow-x-scroll md:gap-3">
           {productData.map((product, i) => (
             <Button
               key={i}
@@ -173,12 +200,17 @@ const OurProducts = () => {
           </div>
 
           <div className="transition-transform duration-500 pl-5">
-            <div className="flex h-auto rounded-xl shadow-2xl w-full min-w-[380px] max-w-[380px] md:min-w-[848px] md:max-w-[848px] overflow-x-hidden bg-white">
+            <div 
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            ref={carouselRef}
+            className="flex h-auto rounded-xl shadow-2xl w-full xs:min-w-[380px] max-w-[380px] md:min-w-[848px] md:max-w-[848px] overflow-x-hidden bg-white">
               {products.map((product, index) => (
                 <div
                   key={index}
                   style={{ transform: `translateX(-${item * 100}%)` }}
-                  className="transition-all duration-500 flex flex-col lg:flex-row items-center justify-between gap-[34px] min-w-[380px] md:min-w-[848px] p-5"
+                  className="transition-all duration-500 flex flex-col lg:flex-row items-center justify-between gap-[34px] w-full min-w-[380px] md:min-w-[848px] p-5"
                 >
                   <div className="w-full lg:w-[300px] flex justify-between items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]">
                     <div

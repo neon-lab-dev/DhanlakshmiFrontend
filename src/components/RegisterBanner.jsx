@@ -15,10 +15,10 @@ export default function RegisterBanner() {
     >
       <div className="flex relative justify-center items-center px-16 w-full max-w-[1079px] max-md:px-5 max-md:max-w-full">
         <div className="flex flex-col max-w-full w-[819px]">
-          <h2 className="text-white text-[2.625rem] text-center capitalize max-md:max-w-full">
+          <h2 className="text-white text-[2.625rem] font-Inter font-700 text-center capitalize max-md:max-w-full">
             Register now to Get FREE sample
           </h2>
-          <p className="text-white mx-4 mt-4 text-base leading-6 text-center max-md:mr-2.5 max-md:max-w-full">
+          <p className="text-white mx-4 mt-4 text-base font-Inter font-400 leading-6 text-center max-md:mr-2.5 max-md:max-w-full">
             Be among the first to sign up and receive a complimentary product as
             our token of appreciation. Don't miss out on this opportunity to
             experience the best of our offerings before anyone else. Register
@@ -26,7 +26,7 @@ export default function RegisterBanner() {
           </p>
           <button
             onClick={() => setIsUserSignUpModalOpen(true)}
-            className="flex items-center gap-3 self-center px-6 py-5 mt-6 text-xl leading-4 bg-red-500 rounded-md max-md:px-5"
+            className="flex items-center gap-3 self-center px-6 py-[18px] mt-6 text-xl font-Poppins font-700 leading-4 bg-rose rounded-md max-md:px-5"
           >
             <span>Register Now</span>
             <svg
