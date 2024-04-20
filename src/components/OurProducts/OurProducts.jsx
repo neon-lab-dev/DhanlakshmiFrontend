@@ -18,8 +18,6 @@ const OurProducts = () => {
   const [products, setProducts] = useState([]);
   const [activeTab, setActiveTab] = useState(CATEGORIES[0]);
 
-  console.log(filteredProducts);
-
   // useEffect(() => {
   //   setProducts(
   //     filteredProducts.find((product) => product.category === activeTab)?.products || []
@@ -113,13 +111,13 @@ const OurProducts = () => {
             <img src={leftArrow} alt="" />
           </div>
 
-          <div className="transition-transform duration-500 pl-5">
+          <div className="transition-transform duration-500 pl-0 lg:pl-5">
             <div 
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             ref={carouselRef}
-            className="flex h-auto rounded-xl shadow-2xl w-full xs:min-w-[380px] max-w-[380px] md:min-w-[848px] md:max-w-[848px] overflow-x-hidden bg-white">
+            className="flex h-auto rounded-xl shadow-2xl w-full xs:min-w-[300px] max-w-[330px] md:min-w-[848px] md:max-w-[848px] overflow-x-hidden bg-white">
               {isLoading ? (
                 <Skeleton className="h-52" />
               ) : (
@@ -130,15 +128,15 @@ const OurProducts = () => {
                       style={{ transform: `translateX(-${item * 100}%)` }}
                       className="transition-all duration-500 flex flex-col lg:flex-row gap-[34px] min-w-[380px] md:min-w-[848px] p-5"
                     >
-                      <div className="w-full lg:w-[300px] flex justify-between items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]">
+                      <div className="w-[330px] lg:w-[300px] flex gap-2 items-center pb-3 lg:pb-0 border-b lg:border-b-0 lg:border-r border-[#E9E9E9]">
                         <div
                           onClick={() => setItem(item === 0 ? item : item - 1)}
-                          className="w-[40px] h-[40px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
+                          className="w-[30px] h-[30px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
                         >
-                          <img src={leftArrow} alt="" />
+                          <img className="w-4" src={leftArrow} alt="" />
                         </div>
 
-                        <img className="w-[70%] lg:w-[90%]" src={product?.avatar?.url} alt="" />
+                        <img className="w-[70%] md:w-[80%] lg:w-[90%]" src={product?.avatar?.url} alt="" />
 
                         <div
                           onClick={() =>
@@ -146,9 +144,9 @@ const OurProducts = () => {
                               item === filteredProducts.length - 1 ? item : item + 1
                             )
                           }
-                          className="w-[40px] h-[40px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
+                          className="w-[30px] h-[30px] rounded-full bg-primary flex lg:hidden justify-center items-center cursor-pointer"
                         >
-                          <img src={rightArrow} alt="" />
+                          <img className="w-4" src={rightArrow} alt="" />
                         </div>
                       </div>
 
