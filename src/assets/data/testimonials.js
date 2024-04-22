@@ -49,12 +49,14 @@ const TESTIMONIALS = [
   },
   {
     name: "Vikram Singh",
+    image: img5,
     review:
       "Since joining the Dhanlakshmi Seller Program, my agricultural supply business has experienced exponential growth. Their extensive product range, featuring top-quality pesticides and nutritious cattle food, has helped me attract and retain customers effectively. With the program's guidance and support, I've been able to navigate challenges and achieve consistent success in the competitive agricultural market.",
     location: "Hyderabad, India",
   },
   {
     name: "Anjali Gupta",
+    image: img2,
     review:
       "The Dhanlakshmi Seller Program has been a game-changer for my business, offering access to premium agricultural products like pesticides and cattle food at competitive prices. Their comprehensive support, including marketing assistance and sales strategies, has empowered me to expand my customer base and increase my revenue significantly. I highly recommend this program to fellow agricultural suppliers and distributors looking to thrive in the industry.",
     location: "Pune, India",

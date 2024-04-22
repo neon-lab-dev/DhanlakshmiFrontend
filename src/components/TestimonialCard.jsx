@@ -2,7 +2,7 @@ import React from "react";
 
 const TestimonialCard = ({ name, image, review, location }) => {
   return (
-    <div className="h-[250px] shadow w-[300px] bg-white px-5 py-[21px] rounded-[10px] flex flex-col justify-between items-start gap-6 shrink-0">
+    <div className="h-[250px] shadow w-[300px] bg-white mr-8 px-5 py-[21px] rounded-[10px] flex flex-col justify-between items-start gap-6 shrink-0">
       <p className="w-[257px] text-bodyText font-Inter font-400 text-base leading-[26.656px]">
         {review.length > 120 ? review.slice(0, 120) + "..." : review}
       </p>
