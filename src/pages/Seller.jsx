@@ -9,6 +9,7 @@ import TestimonialCard from "../components/TestimonialCard";
 import GetInTouch from "../components/GetInTouch";
 import { useGlobalContext } from "../context/GlobalContext";
 import TESTIMONIALS from "../assets/data/testimonials";
+import Marquee from "react-fast-marquee";
 
 const Seller = () => {
   const { setIsSellerSignUpModalOpen } = useGlobalContext();
@@ -119,11 +120,11 @@ const Seller = () => {
             </Button>
           </div>
         </div>
-        <div className="flex overflow-hidden justify-center w-full gap-6 px-6 z-10">
+        <Marquee>
           {TESTIMONIALS.map((card, index) => (
             <TestimonialCard {...card} key={index} />
           ))}
-        </div>
+        </Marquee>
       </section>
       <GetInTouch />
     </div>
