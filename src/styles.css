@@ -6,7 +6,7 @@
 /* font foco register */
 @font-face {
   font-family: "Foco";
-  src: url("./assets//fonts//Foco_Trial_Rg.ttf");
+  src: url("./assets/fonts/Foco_Trial_Rg.ttf");
 }
 
 @layer base {
