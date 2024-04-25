@@ -94,7 +94,7 @@ const Form = () => {
         {errors.message && <ErrorLine error="Message is required" />}
       </div>
 
-      <Button className="w-[200px]">
+      <Button className="w-full md:w-[200px]">
         {isPending ? (
           <div className="flex items-center gap-3 justify-center">
             <span>Loading</span>

@@ -134,6 +134,7 @@ const Header = () => {
         <ul className="flex gap-10 flex-col justify-center">
           {HEADER_LINKS.map(({ label, link, action }) => (
             <li
+            onClick={() => setIsMenuOpen(false)}
               key={label}
               className={`text-base xl:text-lg transition-colors ${
                 pathname === link

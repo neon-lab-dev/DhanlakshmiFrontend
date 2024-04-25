@@ -87,7 +87,7 @@ export default function Hero() {
             }
           : null
       }
-      className="flex flex-col px-20 py-9  full-width max-md:px-5 max-md:max-w-full MainContainer"
+      className="flex flex-col px-20 full-width max-md:px-5 max-md:max-w-full"
     >
       <div className="mx-2.5 mt-16 max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-9 max-md:flex-col max-md:gap-0">
