@@ -129,6 +129,7 @@ const UserSignUpModal = () => {
                             Name*
                           </p>
                           <Input
+                            className="mt-4"
                             type="text"
                             placeholder="Enter your name"
                             {...register("name", { required: true })}
@@ -143,6 +144,7 @@ const UserSignUpModal = () => {
                             Contact Number*
                           </p>
                           <Input
+                            className="mt-4"
                             type="number"
                             placeholder="Enter your contact"
                             {...register("contact_number", { required: true })}
@@ -169,68 +171,22 @@ const UserSignUpModal = () => {
                           <p className="font-Inter text-heading text-base font-600">
                             Address*
                           </p>
-                          <div className="relative inline-block text-left w-full">
-                            <select
-                              {...register("address", { required: true })}
-                              className="block appearance-none cursor-pointer mt-4 bg-bgGray py-[17px] px-4 rounded focus:border border-primary focus:outline-none w-full"
-                            >
-                              <option value="" disabled selected>
-                                Choose city/district
-                              </option>
-                              {["Kolkata", "Mumbai", "Bangaloru"].map(
-                                (city) => (
-                                  <option key={city} value={city}>
-                                    {city}
-                                  </option>
-                                )
-                              )}
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 top-4 flex items-center px-3 text-gray-700">
-                              <img src={downArrow} alt="" />
-                            </div>
-                          </div>
-                          {errors.address && (
-                            <ErrorLine error="Address is required" />
-                          )}
-                        </div>
-
-                        <div>
-                          <p className="font-Inter text-heading text-base font-600">
-                            Estimate yearly income*
-                          </p>
-
-                          <div className="relative inline-block text-left w-full">
-                            <select
-                              {...register("income", { required: true })}
-                              className="block appearance-none cursor-pointer mt-4 bg-bgGray py-[17px] px-4 rounded focus:border border-primary focus:outline-none w-full"
-                            >
-                              <option value="" disabled selected>
-                                Select income range
-                              </option>
-                              {[
-                                "10,000 - 15,000",
-                                "15,000 - 20,000",
-                                "20,000 - 25,000",
-                              ].map((range) => (
-                                <option key={range} value={range}>
-                                  {range}
-                                </option>
-                              ))}
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 top-4 flex items-center px-3 text-gray-700">
-                              <img src={downArrow} alt="" />
-                            </div>
-                          </div>
-                          {errors.income && (
-                            <ErrorLine error="Income is required" />
+                          <Input
+                            className="mt-4"
+                            type="text"
+                            placeholder="Enter your city/district"
+                            {...register("address", { required: true })}
+                          />
+                          {errors.name && (
+                            <ErrorLine error="Name is required" />
                           )}
                         </div>
 
                         <Button
-                          disabled={!watch("address") || !watch("income")}
+                          disabled={!watch("address")}
                           role="button"
                           onClick={() => {
-                            checkErrors(["address", "income"], 3);
+                            checkErrors(["address"], 3);
                           }}
                         >
                           Next
@@ -239,52 +195,6 @@ const UserSignUpModal = () => {
                     )}
 
                     {activeTab === 3 && (
-                      <>
-                        <div>
-                          <p className="font-Inter text-heading text-base font-600">
-                            Crops you harvest*
-                          </p>
-                          <Input
-                            type="text"
-                            placeholder="Enter your harvesting type"
-                            {...register("crops_harvest", { required: true })}
-                          />
-                          {errors.crops_harvest && (
-                            <ErrorLine error="Crops you harvest is required" />
-                          )}
-                        </div>
-
-                        <div>
-                          <p className="font-Inter text-heading text-base font-600">
-                            Cultivation land area*
-                          </p>
-                          <Input
-                            type="number"
-                            placeholder="Enter your land area"
-                            {...register("land_area", {
-                              required: true,
-                            })}
-                          />
-                          {errors.land_area && (
-                            <ErrorLine error="Land area is required" />
-                          )}
-                        </div>
-
-                        <Button
-                          disabled={
-                            !watch("crops_harvest") || !watch("land_area")
-                          }
-                          role="button"
-                          onClick={() => {
-                            checkErrors(["crops_harvest", "land_area"], 4);
-                          }}
-                        >
-                          Next
-                        </Button>
-                      </>
-                    )}
-
-                    {activeTab === 4 && (
                       <>
                         <div>
                           <p className="font-Inter text-heading text-base font-600">
@@ -354,6 +264,7 @@ const UserSignUpModal = () => {
                               Which animals do you own and how many?*
                             </p>
                             <Input
+                              className="mt-4"
                               type="text"
                               placeholder="i.e. 2 cattles and a buffalo"
                               {...register("domestic_animal", {
