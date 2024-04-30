@@ -11,8 +11,8 @@ const Footer = () => {
   // EEEEEE/80    
   return (
     <footer className="bg-[#EEEEEE]">
-      <div className="wrapper md:pt-[68px] py-[27px] px-4 md:px-[42px]  ">
-        <div className="flex w-full flex-col lg:flex-row pb-[50.5px]  justify-center md:justify-evenly items-start   md:gap-[50.5px] gap-[52px]">
+      <div className="wrapper md:pt-[68px] py-[27px]">
+        <div className="flex w-full flex-col lg:flex-row pb-[50.5px]  justify-center md:justify-between items-start   md:gap-[50.5px] gap-[52px]">
           <div className="md:max-w-[295px] w-full max-w-[378px] md:min-w-[295px] flex flex-col gap-4 justify-center items-start">
             <div className="flex items-center gap-[7.329px]">
               <img
