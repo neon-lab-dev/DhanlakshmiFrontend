@@ -4,12 +4,15 @@ import logo from "../assets/icons/dhanlakshami.svg";
 import menu from "../assets/icons/menu.svg";
 import close from "../assets/icons/close-svgrepo-com.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const Header = () => {
   const mobileMenu = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { setTriggerScroll } = useGlobalContext();
+
   const HEADER_LINKS = [
     {
       label: "Home",
@@ -27,8 +30,7 @@ const Header = () => {
       label: "About Us",
       action: () => {
         navigate("/");
-        const aboutUs = document.getElementById("about-us");
-        aboutUs?.scrollIntoView({ behavior: "smooth" });
+        setTriggerScroll(true);
       },
     },
   ];
@@ -73,7 +75,7 @@ const Header = () => {
         </Link>
 
         <div className="hidden md:block font-Inter">
-          <ul className="flex gap-5 items-center justify-center">
+          <ul className="flex gap-5 xl:gap-9 items-center justify-center">
             {HEADER_LINKS.map(({ label, link, action }) => (
               <li
                 key={label}
