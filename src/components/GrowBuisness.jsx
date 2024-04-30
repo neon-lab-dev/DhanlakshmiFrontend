@@ -17,7 +17,7 @@ export default function GrowBuisness() {
       <div>
         <div className="flex relative gap-5 max-md:flex-col max-md:gap-8">
           <div className="flex flex-col w-[66%] max-md:ml-0 pr-8 max-md:w-full max-md:pr-0">
-            <div className="flex py-14 flex-col self-stretch my-auto text-white max-md:mt-10 max-md:max-w-full">
+            <div className="flex py-14 flex-col self-stretch my-auto text-white max-md:mt-3 max-md:max-w-full">
               <h1 className="text-[2.625rem] font-Inter font-700 text-white capitalize max-md:max-w-full">
                 Grow your business with us
               </h1>

@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
     // <div className="main-wrapper">
     <div
       id="main-body"
-      className={`flex flex-col md:gap-8 w-full min-h-full ${
+      className={`flex flex-col  w-full min-h-full ${
         pathname === "/seller" ? "gap-0" : "md:pt-6"
       }`}
     >

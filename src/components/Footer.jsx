@@ -8,9 +8,9 @@ import copyRight from "../assets/icons/copyright.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  // EEEEEE/80    
   return (
-    <footer className="wrapper">
-      <hr style={{ color: "rgba(106, 106, 106, 0.40)" }} />
+    <footer className=" bg-[#EEEEEE]">
 
       <div className="w-full md:pt-[68px] py-[27px]">
         <div className="flex w-full flex-col lg:flex-row pb-[50.5px]  justify-center md:justify-between items-start   md:gap-[50.5px] gap-[52px]">
