@@ -7,7 +7,7 @@ import { getAllProducts } from "../api/products";
 import { useSearchParams } from "react-router-dom";
 import { Skeleton } from "../components/Skeleton";
 
-const CATEGORIES = ["Bio Stimulate", "Pesticides", "Cattle Feed"];
+const CATEGORIES = ["Bio Stimulant", "Pesticides", "Cattle Feed"];
 
 const Product = () => {
   const { setIsUserSignUpModalOpen } = useGlobalContext();
