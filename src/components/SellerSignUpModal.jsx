@@ -166,6 +166,7 @@ const SellerSignUpModal = () => {
                               Name
                             </p>
                             <Input
+                              className="mt-4"
                               placeholder="Enter your name"
                               {...register("full_name", { required: true })}
                             />
@@ -179,6 +180,7 @@ const SellerSignUpModal = () => {
                               Store Name
                             </p>
                             <Input
+                              className="mt-4"
                               placeholder="eg. Shree Shyam Organics"
                               {...register("store_name", { required: true })}
                             />
@@ -207,6 +209,7 @@ const SellerSignUpModal = () => {
                               Address*
                             </p>
                             <Input
+                              className="mt-4"
                               placeholder="Enter your address"
                               {...register("address", { required: true })}
                             />
@@ -220,6 +223,7 @@ const SellerSignUpModal = () => {
                               Email*
                             </p>
                             <Input
+                              className="mt-4"
                               placeholder="Enter your email"
                               type="email"
                               {...register("email", { required: true })}
@@ -254,6 +258,7 @@ const SellerSignUpModal = () => {
                           Enter OPT sent to you mobile
                         </p>
                         <Input
+                          className="mt-4"
                           placeholder="Enter 4 digit OTP"
                           type="number"
                           {...registerOtp("otp", { required: true })}

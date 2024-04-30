@@ -7,11 +7,15 @@ export const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   const [isUserSignUpModalOpen, setIsUserSignUpModalOpen] = useState(false);
   const [isSellerSignUpModalOpen, setIsSellerSignUpModalOpen] = useState(false);
+  const [triggerScroll, setTriggerScroll] = useState(false);
+
   const value = {
     isUserSignUpModalOpen,
     setIsUserSignUpModalOpen,
     isSellerSignUpModalOpen,
     setIsSellerSignUpModalOpen,
+    triggerScroll,
+    setTriggerScroll,
   };
 
   useEffect(() => {

@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllProducts } from "../../api/products";
 import { Skeleton } from "../Skeleton";
 
-const CATEGORIES = ["Bio Stimulate", "Pesticides", "Cattle Feed"];
+const CATEGORIES = ["Bio Stimulant", "Pesticides", "Cattle Feed"];
 
 const OurProducts = () => {
 

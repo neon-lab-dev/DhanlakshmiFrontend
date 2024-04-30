@@ -9,10 +9,13 @@ export const resisterSeller = async (data) => {
         resolve(res.data?.message);
       })
       .catch((err) => {
-        reject(
+        let msg =
           err?.response?.data?.message ||
-            "Registration failed, Please try again."
-        );
+          "Registration failed, Please try again.";
+        if (msg && msg.length > 50) {
+          msg = "Registration failed, Please try again.";
+        }
+        reject(msg);
       });
   });
 };

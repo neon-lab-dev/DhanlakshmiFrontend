@@ -89,9 +89,15 @@ const Footer = () => {
           <div className="flex lg:flex-col w-full md:w-auto justify-between items-center  gap-[88px] shrink-0">
             <div className="flex items-start gap-[18px]">
               {[
-                { icon: facebook, link: "https://www.facebook.com" },
+                {
+                  icon: facebook,
+                  link: "https://www.facebook.com/profile.php?id=100088920724517&mibextid=ZbWKwL",
+                },
                 { icon: twitter, link: "https://www.twitter.com" },
-                { icon: instagram, link: "https://www.instagram.com" },
+                {
+                  icon: instagram,
+                  link: "https://www.instagram.com/dhanlakshmiorganics?igsh=MWdncmtrYXoyN2Jpcw==",
+                },
                 { icon: linkedin, link: "https://www.linkedin.com" },
               ].map((item, index) => (
                 <Link

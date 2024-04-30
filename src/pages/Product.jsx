@@ -7,7 +7,7 @@ import { getAllProducts } from "../api/products";
 import { useSearchParams } from "react-router-dom";
 import { Skeleton } from "../components/Skeleton";
 
-const CATEGORIES = ["Bio Stimulate", "Pesticides", "Cattle Feed"];
+const CATEGORIES = ["Bio Stimulant", "Pesticides", "Cattle Feed"];
 
 const Product = () => {
   const { setIsUserSignUpModalOpen } = useGlobalContext();
@@ -59,9 +59,6 @@ const Product = () => {
         ))}
       </div>
       <div className="flex flex-col gap-6 mt-3">
-        <span className="hidden md:block font-600 text-[28px]">
-          {activeTab}
-        </span>
         <div className="flex flex-col gap-4">
           {/* // product card */}
           {isLoading ? (
