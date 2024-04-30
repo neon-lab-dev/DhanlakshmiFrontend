@@ -5,6 +5,7 @@ import man_counting_money from "../assets/images/man-counting-money.png"
 import rightArrowSvg from "../assets/icons/right_arrow_2.svg"
 import person_5 from "../assets/images/standing-farmer.png"
 import { useRef, useState } from "react"
+import bg from "../assets/images/dotdotdot.svg";
 
 
 const CustomerReview = () => {
@@ -78,9 +79,14 @@ const CustomerReview = () => {
 
 
     return (
-        <div className="my-[52px]  max-h-[952px] flex  justify-center items-center flex-col md:my-[65px]">
+        <div className="my-[52px]  max-h-[952px] flex  justify-center items-center flex-col md:my-[65px] relative py-12 bg-[#F0F6F2]"
+        
+        >
 
-            <div className="   flex justify-center items-center flex-col">
+            <div className="absolute top-0 left-0 w-full h-full bg-repeat opacity-15" style={{
+            backgroundImage: `url(${bg})`,
+          }}> </div>
+            <div className="flex justify-center items-center flex-col z-10" >
                 <div className="md:max-w-[717px] max-w-[396px] px-2">
 
                     <div className="flex justify-center items-center gap-3 self-stretch">
@@ -93,11 +99,12 @@ const CustomerReview = () => {
 
                 </div>
             </div>
+            
 
 
             {/* carousel start */}
 
-            <div className="flex justify-center md:mt-[76px] mt-[42px]  items-center w-full  gap-9 ">
+            <div className="flex justify-center md:mt-[76px] mt-[42px]  items-center w-full  gap-9 z-10">
                 {/* back btn */}
                 <div style={{
                     background: `linear-gradient(0deg, rgba(0, 71, 16, 0.50) 0%, rgba(0, 71, 16, 0.50) 100%), url(${man_counting_money})`,
@@ -114,10 +121,10 @@ const CustomerReview = () => {
                     </a>
                 </div>
 
-                <div className="transition-transform duration-500">
+                <div className="transition-transform duration-500 z-10">
                     {/*  */}
                     <div
-                        className="min-w-[300px] max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px] mx-3 flex overflow-y-hidden  overflow-x-hidden lg:overflow-x-hidden  rounded-xl  shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px]"
+                        className="min-w-[300px] max-w-[320px] sm:max-w-[385px] md:min-w-[810px] md:max-w-[810px] mx-3 flex overflow-y-hidden  overflow-x-hidden lg:overflow-x-hidden  rounded-xl bg-white shadow-[rgba(0, 0, 0, 0.10)] shadow-md md:h-[351px]"
                         onTouchStart={handleTouchStart}
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}

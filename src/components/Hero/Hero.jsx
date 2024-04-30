@@ -89,11 +89,11 @@ export default function Hero() {
       }
       className="flex flex-col px-20 full-width max-md:px-5 max-md:max-w-full"
     >
-      <div className="mx-2.5 mt-16 max-md:mt-10 max-md:max-w-full">
+      <div className="mx-2.5 mt-10 max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-9 max-md:flex-col max-md:gap-0">
           <div className="flex grow w-[60%] flex-col max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col pt-3.5 mt-3.5 max-md:max-w-full">
-              <div className="mt-3.5 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-primary capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
+            <div className="flex flex-col pt-3.5  max-md:max-w-full">
+              <div className="-mt-2 font-[700] w-[76%] max-md:w-[100%] font-extrabold text-primary capitalize leading-[77px] text-[4.25rem] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
                 <div className="animate-text">
                   <span className="font-bold text-heading max-md:text-white">
                     Nothing Like{" "}
@@ -119,12 +119,12 @@ export default function Hero() {
                   </span>
                 </div>
               </div>
-              <div className="mt-10 w-[76%] max-md:w-[100%] text-base	font-Inter font-400  max-md:text-white leading-6 text-bodyText max-md:max-w-full">
+              <div className="mt-7 w-[76%] max-md:w-[100%] text-base	font-Inter font-400  max-md:text-white leading-6 text-bodyText max-md:max-w-full">
                 Welcome to Dhanlakshmi Organics, your trusted partner in
                 agriculture. One stop solution for Fertilisers, Pesticides and
                 Cattlefeed supplements. Join us in harvesting prosperity.
               </div>
-              <div className="flex gap-3 max-md:w-[100%] max-md:flex-col self-start mt-10 text-lg font-medium text-center">
+              <div className="flex gap-3 max-md:w-[100%] max-md:flex-col self-start mt-8 text-lg font-medium text-center">
                 <Button 
                 variant="primary"
                 className="text-white font-Inter font-500 text-lg" 
