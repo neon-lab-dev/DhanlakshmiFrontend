@@ -8,7 +8,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const Header = () => {
   const mobileMenu = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const HEADER_LINKS = [
@@ -39,19 +38,6 @@ const Header = () => {
   }, [pathname]);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 140) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    });
-    return () => {
-      window.removeEventListener("scroll", () => {});
-    };
-  }, []);
-
-  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflowY = "hidden";
       mobileMenu.current.classList.remove("translate-x-full");
@@ -65,9 +51,9 @@ const Header = () => {
     <>
       <nav
         className={`flex justify-between md:rounded-[10px] py-4 z-50 px-4 sm:px-6 items-center md:wrapper transition-transform ${
-          pathname === "/seller" && !isScrolled
+          pathname === "/seller"
             ? "md:absolute md:text-white md:top-6 md:left-1/2 md:-translate-x-1/2 navShadow md:shadow-none md:bg-none"
-            : "text-heading navShadow sticky top-0 md:top-4"
+            : "navShadow"
         }`}
       >
         <Link to="/" className="flex items-center justify-center gap-4">
@@ -134,7 +120,7 @@ const Header = () => {
         <ul className="flex gap-10 flex-col justify-center">
           {HEADER_LINKS.map(({ label, link, action }) => (
             <li
-            onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
               key={label}
               className={`text-base xl:text-lg transition-colors ${
                 pathname === link
