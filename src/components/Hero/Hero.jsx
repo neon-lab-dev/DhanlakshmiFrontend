@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
+import profile0 from "../../assets/images/ai-generated-8708404_1920.jpg";
 import profile1 from "../../assets/images/img1.png";
 import profile2 from "../../assets/images/img2.png";
 import profile3 from "../../assets/images/img3.png";
@@ -13,7 +14,7 @@ export default function Hero() {
   const textInTimer = 3000;
   const textOutTimer = 3000;
   const imageTimer = 6000;
-  const imgSrcs = [profile1, profile2, profile3];
+  const imgSrcs = [profile0, profile1, profile2, profile3];
   const imageIndexRef = useRef(0);
   const { setIsUserSignUpModalOpen, setIsSellerSignUpModalOpen } =
     useGlobalContext();
