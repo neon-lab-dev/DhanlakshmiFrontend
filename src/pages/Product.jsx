@@ -38,7 +38,7 @@ const Product = () => {
   }, [activeTab, data]);
 
   return (
-    <div className="flex flex-col gap-5 wrapper">
+    <div className="flex flex-col gap-5 wrapper mt-6 lg:mt-12">
       <h2 className="text-heading font-600 font-Inter text-xl">Products</h2>
       <div className="flex gap-3 max-w-full overflow-x-scroll md:overflow-x-hidden">
         {CATEGORIES.map((cat, i) => (
