@@ -259,7 +259,7 @@ const SellerSignUpModal = () => {
                         </p>
                         <Input
                           className="mt-4"
-                          placeholder="Enter 4 digit OTP"
+                          placeholder="Enter digit OTP"
                           type="number"
                           {...registerOtp("otp", { required: true })}
                         />
