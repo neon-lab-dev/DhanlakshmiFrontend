@@ -16,12 +16,6 @@ const SuccessModal = (props) => {
         <h2 className="font-Inter text-xl font-600 text-heading text-center">
           Registered Successfully!
         </h2>
-
-        <p className="font-Inter text-base font-400 text-heading text-center">
-          You have successfully registered in our Pre Registration Program and
-          have unlocked the perks. We will get in touch with you soon.
-        </p>
-
         <Button role="button" onClick={props.onCloseModal}>
           Close
         </Button>
