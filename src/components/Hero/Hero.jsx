@@ -64,7 +64,7 @@ export default function Hero() {
   }, []);
   useEffect(() => {
     const animateImg = () => {
-      if (imageIndexRef.current === 2) {
+      if (imageIndexRef.current >= imgSrcs.length - 1) {
         imageIndexRef.current = 0;
       } else {
         imageIndexRef.current += 1;
