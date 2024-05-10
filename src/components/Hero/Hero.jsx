@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import profile0 from "../../assets/images/ai-generated-8708404_1920.jpg";
-import profile1 from "../../assets/images/img1.png";
-import profile2 from "../../assets/images/img2.png";
-import profile3 from "../../assets/images/img3.png";
+import profile1 from "../../assets/images/1.jpg";
+import profile2 from "../../assets/images/2.jpg";
+import profile3 from "../../assets/images/3.jpg";
+import profile4 from "../../assets/images/4.jpg";
+
 import Button from "../Button";
 import { useGlobalContext } from "../../context/GlobalContext";
 
@@ -14,7 +16,7 @@ export default function Hero() {
   const textInTimer = 3000;
   const textOutTimer = 3000;
   const imageTimer = 6000;
-  const imgSrcs = [profile0, profile1, profile2, profile3];
+  const imgSrcs = [profile0, profile1, profile2, profile3, profile4];
   const imageIndexRef = useRef(0);
   const { setIsUserSignUpModalOpen, setIsSellerSignUpModalOpen } =
     useGlobalContext();
@@ -62,7 +64,7 @@ export default function Hero() {
   }, []);
   useEffect(() => {
     const animateImg = () => {
-      if (imageIndexRef.current === 2) {
+      if (imageIndexRef.current >= imgSrcs.length - 1) {
         imageIndexRef.current = 0;
       } else {
         imageIndexRef.current += 1;
@@ -126,14 +128,15 @@ export default function Hero() {
                 Cattlefeed supplements. Join us in harvesting prosperity.
               </div>
               <div className="flex gap-3 max-md:w-[100%] max-md:flex-col self-start mt-8 text-lg font-medium text-center">
-                <Button 
-                variant="primary"
-                className="text-white font-Inter font-500 text-lg" 
-                onClick={() => setIsUserSignUpModalOpen(true)}>
+                <Button
+                  variant="primary"
+                  className="text-white font-Inter font-500 text-lg"
+                  onClick={() => setIsUserSignUpModalOpen(true)}
+                >
                   Register as User
                 </Button>
                 <Button
-                className="text-primary font-Inter font-500 text-lg"
+                  className="text-primary font-Inter font-500 text-lg"
                   variant="secondary"
                   onClick={() => setIsSellerSignUpModalOpen(true)}
                 >

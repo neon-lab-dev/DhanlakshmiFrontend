@@ -321,6 +321,7 @@ const SellerSignUpModal = () => {
                     setIsSellerSignUpModalOpen(false);
                     setActiveTab(1);
                   }}
+                  desc="You have successfully registered with Us! we are pleased to Welcome you as valued distributor. Please let us know for any queries in contact us section."
                 />
               )}
             </div>
