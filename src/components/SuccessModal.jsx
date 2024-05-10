@@ -16,6 +16,7 @@ const SuccessModal = (props) => {
         <h2 className="font-Inter text-xl font-600 text-heading text-center">
           Registered Successfully!
         </h2>
+        <p>{props.desc}</p>
         <Button role="button" onClick={props.onCloseModal}>
           Close
         </Button>

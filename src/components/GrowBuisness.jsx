@@ -1,6 +1,6 @@
 import React from "react";
 import growYourBuisenessbg from "../assets/images/grow-your-business-bg.png";
-import manCountingImg from "../assets/images/man-counting-money.png";
+import manCountingImg from "../assets/images/banner-bg.png";
 import { useGlobalContext } from "../context/GlobalContext";
 
 export default function GrowBuisness() {
@@ -39,7 +39,8 @@ export default function GrowBuisness() {
           </div>
           <img
             src={manCountingImg}
-            className="h-[160%] w-[34%] max-md:hidden object-cover absolute right-0 bottom-0"
+            className="h-[160%] w-[34%] max-md:hidden object-contain absolute object-bottom
+            right-0 bottom-0"
             alt=""
           />
         </div>

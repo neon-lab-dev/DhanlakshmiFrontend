@@ -302,6 +302,7 @@ const UserSignUpModal = () => {
                     setIsUserSignUpModalOpen(false);
                     setActiveTab(1);
                   }}
+                  desc="You have successfully registered with Us! You are now eligible for customer benefits. Please let us know for any queries in contact us section."
                 />
               )}
             </div>
