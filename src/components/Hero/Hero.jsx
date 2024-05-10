@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import profile0 from "../../assets/images/ai-generated-8708404_1920.jpg";
-import profile1 from "../../assets/images/WhatsApp Image 2024-05-10 at 21.06.47.jpeg";
+import profile1 from "../../assets/images/WhatsApp Image 2024-05-10 at 21.07.50.jpeg";
 import profile2 from "../../assets/images/WhatsApp Image 2024-05-10 at 21.07.04.jpeg";
 import profile3 from "../../assets/images/WhatsApp Image 2024-05-10 at 21.07.20.jpeg";
 import profile4 from "../../assets/images/WhatsApp Image 2024-05-10 at 21.07.33.jpeg";
