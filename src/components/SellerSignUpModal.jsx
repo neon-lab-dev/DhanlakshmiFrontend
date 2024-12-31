@@ -255,7 +255,7 @@ const SellerSignUpModal = () => {
                     >
                       <div>
                         <p className="font-Inter text-heading text-base font-600">
-                          Enter OPT sent to you mobile
+                          Enter OPT sent to your email. 
                         </p>
                         <Input
                           className="mt-4"
